@@ -63,6 +63,16 @@ function barebones:OnGameInProgress()
 	GameRules:SetTimeOfDay(0.251)
 end
 
+LinkLuaModifier("hide_unit_modifier", LUA_MODIFIER_MOTION_NONE)
+
+function barebones:OnNPCSpawned(keys)
+	local unit = EntIndexToHScript(keys.entindex)
+
+	if unit and unit:IsHero() and unit:IsRealHero() then
+		unit:AddNewModifier(unit, nil, "hide_unit_modifier", {duration = -1})
+	end
+end
+
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function barebones:InitGameMode()
@@ -296,7 +306,7 @@ function barebones:CaptureGameMode()
 	gamemode:SetCustomGlyphCooldown(CUSTOM_GLYPH_COOLDOWN)
 	gamemode:DisableHudFlip(FORCE_MINIMAP_ON_THE_LEFT)
 
-	gamemode:SetFreeCourierModeEnabled(true) -- without this, passive GPM doesn't work, Thanks Valve
+	--gamemode:SetFreeCourierModeEnabled(true) -- without this, passive GPM doesn't work, Thanks Valve
 	--gamemode:SetUseTurboCouriers(true)
 	--gamemode:SetGiveFreeTPOnDeath(false) -- disables free tp scroll on death
 	--gamemode:SetTPScrollSlotItemOverride(itemname) -- replace tp scroll slot with something else
