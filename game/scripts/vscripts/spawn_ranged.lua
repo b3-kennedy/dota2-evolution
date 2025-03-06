@@ -12,7 +12,14 @@ function spawn_ranged:OnSpellStart()
     self.enemy_spawn = self:GetCaster():FindModifierByName("hide_unit_modifier").enemy_spawn
     self.queue = self:GetCaster():FindModifierByName("hide_unit_modifier").queue
 
-    self.unit_data = {name = "npc_dota_creep_goodguys_ranged", spawn_time = 1.5, ability = "spawn_ranged"}
+    self.unit_data = 
+    {
+        name = "npc_dota_creep_goodguys_ranged", 
+        spawn_time = 1.5, 
+        ability = "spawn_ranged", 
+        gold_cost = 30,
+        gold_bounty = 60
+    }
 
     print("spawned ranged")
 

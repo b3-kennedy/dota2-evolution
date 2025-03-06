@@ -13,7 +13,15 @@ function spawn_melee:OnSpellStart()
     self.queue = self:GetCaster():FindModifierByName("hide_unit_modifier").queue
     self.spawn_time = 1
 
-    self.unit_data = {name = "npc_dota_creep_goodguys_melee", spawn_time = 1, ability = "spawn_melee"}
+    self.unit_data = 
+    {
+        name = "npc_dota_creep_goodguys_melee", 
+        spawn_time = 1, 
+        ability = "spawn_melee",
+        gold_bounty = 50,
+        gold_cost = 25,
+
+    }
 
     if self:GetCaster():GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 

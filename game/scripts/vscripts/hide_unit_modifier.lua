@@ -17,8 +17,9 @@ function hide_unit_modifier:CreateUnit(data)
 
     --local modifier = self:GetParent():AddNewModifier(self:GetParent(), nil, name, kv)
     self.queue:enqueue(data)  
-
+    self.data = data
     
+    PlayerResource:SpendGold(self:GetParent():GetPlayerOwnerID(),self.data.gold_cost,DOTA_ModifyGold_AbilityCost)
 
     -- if self.queue.size() > 0 then
         
@@ -83,10 +84,10 @@ end
 
 function hide_unit_modifier:OnIntervalThink()
 
+    
+
 
     if not self.queue:isEmpty() then
-        print("game time" .. GameRules:GetGameTime())
-        print("new spawn time" .. tostring(self.last_spawn_time + self.queue:peek().spawn_time))
         if GameRules:GetGameTime() >= self.last_spawn_time + self.queue:peek().spawn_time then
             self:Spawn(self.queue:peek().name, self.queue:peek().ability)
 

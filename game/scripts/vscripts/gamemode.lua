@@ -78,6 +78,19 @@ end
 function barebones:InitGameMode()
 	DebugPrint("[BAREBONES] Starting to load Game Rules.")
 
+
+	local radiant_ancient = Entities:FindByName(nil, "dota_goodguys_fort")
+	local dire_ancient = Entities:FindByName(nil, "dota_badguys_fort")
+
+	if radiant_ancient then
+		radiant_ancient:RemoveModifierByName("modifier_invulnerable")
+		radiant_ancient:RemoveModifierByName("modifier_backdoor_protection")
+	end
+
+	if dire_ancient then
+		dire_ancient:RemoveModifierByName("modifier_invulnerable")
+		dire_ancient:RemoveModifierByName("modifier_backdoor_protection")
+	end
 	-- Setup rules
 	GameRules:SetSameHeroSelectionEnabled(ALLOW_SAME_HERO_SELECTION)
 	GameRules:SetUseUniversalShopMode(UNIVERSAL_SHOP_MODE)
