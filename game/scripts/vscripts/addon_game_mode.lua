@@ -32,6 +32,7 @@ function Precache(context)
 	PrecacheResource("particle_folder", "particles/test_particle", context)
 	PrecacheModel("models/creeps/lane_creeps/creep_dire_hulk/creep_dire_ancient_hulk.vmdl", context)
 	PrecacheModel("models/creeps/lane_creeps/creep_radiant_hulk/creep_radiant_ancient_hulk.vmdl", context)
+	PrecacheModel("models/props_gameplay/fountain_of_life/fountain_of_life.vmdl", context)
 
 	-- Models can also be precached by folder or individually
 	-- PrecacheModel should generally used over PrecacheResource for individual models
