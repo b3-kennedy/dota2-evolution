@@ -12,29 +12,39 @@ function spawn_melee:OnSpellStart()
     self.enemy_spawn = self:GetCaster():FindModifierByName("hide_unit_modifier").enemy_spawn
     self.queue = self:GetCaster():FindModifierByName("hide_unit_modifier").queue
     self.spawn_time = 1
-
+    self.team = self:GetCaster():GetTeamNumber()
+    
     self.unit_data = 
     {
-        name = "npc_dota_creep_goodguys_melee", 
+        name = "", 
         spawn_time = 1, 
         ability = "spawn_melee",
-        gold_bounty = 50,
         gold_cost = 25,
 
     }
 
-    if self:GetCaster():GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+    local testunit = CreateUnitByName("npc_dota_creep_badguys_melee", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    Timers:CreateTimer(0.1, function()
+        self:MoveUnitToPosition(testunit, self.spawn_pos)
+    end)
 
-        print(GameRules:GetGameTime() + 1)
-
-        local kv = {unit = "npc_dota_creep_goodguys_melee", pos = self.spawn_pos}
-
-        self.hide_unit_modifier:CreateUnit(self.unit_data)
-
-        local testunit = CreateUnitByName("npc_dota_creep_badguys_melee", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
-
+    if self:GetLevel() == 1 then
+        self:SpawnLevelOne()
+    elseif self:GetLevel() == 2 then
+        self:SpawnLevelOne()
     end
 
+end
+
+function spawn_melee:SpawnLevelOne()
+    if self.team == DOTA_TEAM_GOODGUYS then
+        self.unit_data.name = "npc_dota_creep_goodguys_melee"
+    else
+        self.unit_data.name = "npc_dota_creep_badguys_melee" 
+    end
+
+    self.hide_unit_modifier:CreateUnit(self.unit_data)
+        
 end
 
 function spawn_melee:MoveUnitToPosition(unit, position)

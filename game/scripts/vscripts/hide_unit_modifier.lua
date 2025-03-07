@@ -15,28 +15,42 @@ end
 
 function hide_unit_modifier:CreateUnit(data)
 
-    --local modifier = self:GetParent():AddNewModifier(self:GetParent(), nil, name, kv)
-    self.queue:enqueue(data)  
-    self.data = data
-    
-    PlayerResource:SpendGold(self:GetParent():GetPlayerOwnerID(),self.data.gold_cost,DOTA_ModifyGold_AbilityCost)
+    if PlayerResource:GetGold(self:GetParent():GetPlayerOwnerID()) >= data.gold_cost then
 
+        if self.queue:size() == 0 then
+            self.last_spawn_time = GameRules:GetGameTime()
+        end
+        --local modifier = self:GetParent():AddNewModifier(self:GetParent(), nil, name, kv)
+        self.queue:enqueue(data)  
+        self.data = data
+        
+        PlayerResource:SpendGold(self:GetParent():GetPlayerOwnerID(),self.data.gold_cost,DOTA_ModifyGold_AbilityCost)
+        --play buy sound
+        EmitSoundOnClient("Hero_Furion.ForceOfNature", PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()))
+    else
+        --play error sound
+    end
+    
     -- if self.queue.size() > 0 then
         
     -- end
     
 end
 
-function hide_unit_modifier:Spawn(name, ability)
-    local ability = self:GetParent():FindAbilityByName(ability)
+function hide_unit_modifier:Spawn(data)
+    local ability = self:GetParent():FindAbilityByName(data.ability)
     local spawn_pos = ability.spawn_pos
-    local unit = CreateUnitByName(name, spawn_pos, true, self:GetParent(), nil, self:GetParent():GetTeamNumber())
+    local unit = CreateUnitByName(data.name, spawn_pos, true, self:GetParent(), self:GetParent(), self:GetParent():GetTeamNumber())
     print(unit)
     Timers:CreateTimer(0.1, function()
         ability:MoveUnitToPosition(unit, ability.enemy_spawn)
     end)
     self.queue:dequeue()
     self.last_spawn_time = GameRules:GetGameTime()
+
+    if data.ability1 ~= nil then
+        unit:FindAbilityByName(data.ability1):SetLevel(4)
+    end
 end
 
 function hide_unit_modifier:OnCreated( kv )
@@ -82,17 +96,38 @@ end
 
 --------------------------------------------------------------------------------
 
-function hide_unit_modifier:OnIntervalThink()
-
-    
-
-
+function hide_unit_modifier:ManageQueue()
     if not self.queue:isEmpty() then
         if GameRules:GetGameTime() >= self.last_spawn_time + self.queue:peek().spawn_time then
-            self:Spawn(self.queue:peek().name, self.queue:peek().ability)
+            self:Spawn(self.queue:peek())
 
 
         end
     end
+end
+
+function hide_unit_modifier:EnoughGoldForAbilityCheck()
+
+    if not IsServer() then return end
+
+    for i=0, self:GetParent():GetAbilityCount()-1 do
+        local ability = self:GetParent():GetAbilityByIndex(i)
+        local gold = PlayerResource:GetGold(self:GetParent():GetPlayerOwnerID())
+        if ability.unit_data then
+            if gold < ability.unit_data.gold_cost then
+                ability:SetActivated(false)
+            else
+                ability:SetActivated(true)
+            end
+
+        end
+    end
+end
+
+function hide_unit_modifier:OnIntervalThink()
+
+    self:ManageQueue()
+    self:EnoughGoldForAbilityCheck()
+
 
 end

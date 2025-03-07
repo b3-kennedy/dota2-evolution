@@ -30,6 +30,8 @@ function Precache(context)
 	-- It it likely that precaching a single particle system will precache all of its children, but this may not be guaranteed
 	PrecacheResource("particle", "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", context)
 	PrecacheResource("particle_folder", "particles/test_particle", context)
+	PrecacheModel("models/creeps/lane_creeps/creep_dire_hulk/creep_dire_ancient_hulk.vmdl", context)
+	PrecacheModel("models/creeps/lane_creeps/creep_radiant_hulk/creep_radiant_ancient_hulk.vmdl", context)
 
 	-- Models can also be precached by folder or individually
 	-- PrecacheModel should generally used over PrecacheResource for individual models

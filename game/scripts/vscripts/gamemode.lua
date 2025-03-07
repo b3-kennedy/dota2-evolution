@@ -69,8 +69,24 @@ function barebones:OnNPCSpawned(keys)
 	local unit = EntIndexToHScript(keys.entindex)
 
 	if unit and unit:IsHero() and unit:IsRealHero() then
+
+		for i=0, unit:GetAbilityCount()-1 do
+			local ability = unit:GetAbilityByIndex(i)
+			if ability then
+				ability:SetLevel(1)
+			end
+		end
+
 		unit:AddNewModifier(unit, nil, "hide_unit_modifier", {duration = -1})
 	end
+end
+
+function barebones:OnUnitKilled(keys)
+	local killed_unit = EntIndexToHScript(keys.entindex_killed)
+	local killer_unit = EntIndexToHScript(keys.entindex_attacker)
+
+	-- print(killer_unit:GetName() .. " has killed " .. killed_unit:GetName())
+	-- print("the attackers owner is " .. tostring(killer_unit:GetPlayerOwnerID()))
 end
 
 -- This function initializes the game mode and is called before anyone loads into the game
@@ -178,7 +194,7 @@ function barebones:InitGameMode()
 	DebugPrint("[BAREBONES] Setting Event Hooks / Listeners.")
 	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(barebones, 'OnPlayerLevelUp'), self)
 	ListenToGameEvent('dota_player_learned_ability', Dynamic_Wrap(barebones, 'OnPlayerLearnedAbility'), self)
-	ListenToGameEvent('entity_killed', Dynamic_Wrap(barebones, 'OnEntityKilled'), self)
+	ListenToGameEvent('entity_killed', Dynamic_Wrap(barebones, 'OnUnitKilled'), self)
 	ListenToGameEvent('player_connect_full', Dynamic_Wrap(barebones, 'OnConnectFull'), self)
 	ListenToGameEvent('player_disconnect', Dynamic_Wrap(barebones, 'OnDisconnect'), self)
 	ListenToGameEvent('dota_item_picked_up', Dynamic_Wrap(barebones, 'OnItemPickedUp'), self)
