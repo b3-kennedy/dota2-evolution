@@ -91,11 +91,11 @@ function barebones:OnNPCSpawned(keys)
 
 		if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			local spawn = Vector(0, -2322.42, 128)
-			local kv = {duration = -1, spawn_x = spawn.x, spawn_y = spawn.y, spawn_z = spawn.z}
+			local kv = {duration = -1, spawn_x = spawn.x, spawn_y = spawn.y, spawn_z = spawn.z, player = unit:entindex()}
 			unit:AddNewModifier(unit, nil, "create_unit_modifier", kv)
 		else
 			local spawn = Vector(195.836, 2322.42, 128)
-			local kv = {duration = -1, spawn_x = spawn.x, spawn_y = spawn.y, spawn_z = spawn.z}
+			local kv = {duration = -1, spawn_x = spawn.x, spawn_y = spawn.y, spawn_z = spawn.z,  player = unit:entindex()}
 			unit:AddNewModifier(unit, nil, "create_unit_modifier", kv)
 		end
 

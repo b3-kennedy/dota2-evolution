@@ -40,8 +40,7 @@ end
 function create_unit_modifier:Spawn(data)
     local ability = self:GetParent():FindAbilityByName(data.ability)
     local spawn_pos = ability.spawn_pos
-    local unit = CreateUnitByName(data.name, spawn_pos, true, self:GetParent(), self:GetParent(), self:GetParent():GetTeamNumber())
-    print(unit)
+    local unit = CreateUnitByName(data.name, spawn_pos, true, self.player, self.player, self.player:GetTeamNumber())
     Timers:CreateTimer(0.1, function()
         ability:MoveUnitToPosition(unit, ability.enemy_spawn)
     end)
@@ -54,9 +53,17 @@ function create_unit_modifier:Spawn(data)
 end
 
 function create_unit_modifier:OnCreated( kv )
+
+    if not IsServer() then return end
+
     self.queue = Queue:new()
 
     self.last_spawn_time = GameRules:GetGameTime()
+    local player_index = kv.player
+    self.player = EntIndexToHScript(player_index)
+
+    print(self.player)
+
 
     local spawn = Vector(kv.spawn_x, kv.spawn_y, kv.spawn_z)
 

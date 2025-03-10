@@ -18,7 +18,8 @@ function build_barracks:OnSpellStart()
             duration = -1, 
             spawn_x = self.mouse_pos.x, 
             spawn_y = self.mouse_pos.y, 
-            spawn_z = self.mouse_pos.z
+            spawn_z = self.mouse_pos.z,
+            player = self.player:entindex()
         }
         building:AddNewModifier(self.player, self, "create_unit_modifier", kv)
         building:SetOwner(self.player)
