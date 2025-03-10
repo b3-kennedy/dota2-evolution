@@ -9,10 +9,10 @@ LinkLuaModifier("spawner_modifier", LUA_MODIFIER_MOTION_NONE)
 function spawn_melee:OnSpellStart()
 
     
-    self.hide_unit_modifier = self:GetCaster():FindModifierByName("hide_unit_modifier")
-    self.spawn_pos = self:GetCaster():FindModifierByName("hide_unit_modifier").spawn_pos
-    self.enemy_spawn = self:GetCaster():FindModifierByName("hide_unit_modifier").enemy_spawn
-    self.queue = self:GetCaster():FindModifierByName("hide_unit_modifier").queue
+    self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
+    self.spawn_pos = self:GetCaster():FindModifierByName("create_unit_modifier").spawn_pos
+    self.enemy_spawn = self:GetCaster():FindModifierByName("create_unit_modifier").enemy_spawn
+    self.queue = self:GetCaster():FindModifierByName("create_unit_modifier").queue
     self.spawn_time = 1
     self.team = self:GetCaster():GetTeamNumber()
 
@@ -47,7 +47,7 @@ function spawn_melee:SpawnLevelOne()
         self.unit_data.name = "npc_dota_creep_bad_melee" 
     end
 
-    self.hide_unit_modifier:CreateUnit(self.unit_data)
+    self.create_unit_modifier:CreateUnit(self.unit_data)
         
 end
 

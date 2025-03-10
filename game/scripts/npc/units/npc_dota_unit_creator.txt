@@ -1,10 +1,10 @@
 "DOTAUnits"
 {
-    "npc_dota_tower_builder"	
+    "npc_dota_unit_creator"	
     {
         // General
         //----------------------------------------------------------------
-        "Model"						"models/props_gameplay/fountain_of_life/fountain_of_life.vmdl" // Model.
+        "Model"						"models/props_structures/good_barracks_melee001.vmdl" // Model.
         "BaseClass"					"npc_dota_tower"
         "SoundSet"					"Creep_Good_Melee"
         "GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
@@ -13,10 +13,10 @@
 
         // Abilities
         //----------------------------------------------------------------
-        "Ability1"					"build_tower"			// Ability 1
-        "Ability2"					"build_gold"			// Ability 2
-        "Ability3"					"build_barracks"			// Ability 3
-        "Ability4"					""			// Ability 4
+        "Ability1"					"spawn_melee"			// Ability 1
+        "Ability2"					"spawn_ranged"			// Ability 2
+        "Ability3"					"spawn_special"			// Ability 3
+        "Ability4"					"spawn_siege"			// Ability 4
 
         // Armor
         //----------------------------------------------------------------

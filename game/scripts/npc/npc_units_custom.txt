@@ -9,6 +9,9 @@
 #base "units/npc_dota_creep_siege.txt"
 #base "units/npc_dota_creep_tank.txt"
 #base "units/npc_dota_tower_builder.txt"
+#base "units/npc_dota_tower.txt"
+#base "units/npc_dota_gold_building.txt"
+#base "units/npc_dota_unit_creator.txt"
 
 "DOTAUnits"
 {

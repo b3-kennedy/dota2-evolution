@@ -1,0 +1,41 @@
+
+"DOTAUnits"
+{
+    "npc_dota_tower"
+    {
+        "Model"                     "models/props_structures/radiant_tower001.vmdl"
+        "BaseClass"                 "npc_dota_tower" 
+        "SoundSet"                  "Tower.Good"
+        "Level"                     "1"
+        "ModelScale"                "1.0"
+
+        // Attack
+        "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"  // Make it a ranged attacker
+        "AttackDamageMin"           "100"
+        "AttackDamageMax"           "120"
+        "AttackRate"                "1.0"
+        "AttackAnimationPoint"      "0.0"      // No delay in attack
+        "AttackAcquisitionRange"    "800"      // Range to acquire targets
+        "AttackRange"               "700"      // Actual attack range
+        "ProjectileModel"           "particles/base_attacks/ranged_tower_good.vpcf"
+        "ProjectileSpeed"           "900"
+
+        // Movement
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed"             "0"
+        "MovementTurnRate"          "0.0"      // Prevents any turning
+
+        // Vision
+        "VisionDaytimeRange"        "1600"
+        "VisionNighttimeRange"      "800"
+
+        // Status
+        "StatusHealth"              "2000"
+        "StatusHealthRegen"         "5.0"
+        "ArmorPhysical"             "10"
+        
+        // Team
+        "TeamName"                  "DOTA_TEAM_GOODGUYS"
+    }
+}
+

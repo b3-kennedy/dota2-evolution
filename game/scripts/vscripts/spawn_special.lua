@@ -6,9 +6,9 @@ require('libraries/timers')
 LinkLuaModifier("spawner_modifier", LUA_MODIFIER_MOTION_NONE)
 
 function spawn_special:OnSpellStart()
-    self.hide_unit_modifier = self:GetCaster():FindModifierByName("hide_unit_modifier")
-    self.spawn_pos = self:GetCaster():FindModifierByName("hide_unit_modifier").spawn_pos
-    self.enemy_spawn = self:GetCaster():FindModifierByName("hide_unit_modifier").enemy_spawn
+    self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
+    self.spawn_pos = self:GetCaster():FindModifierByName("create_unit_modifier").spawn_pos
+    self.enemy_spawn = self:GetCaster():FindModifierByName("create_unit_modifier").enemy_spawn
     self.team = self:GetCaster():GetTeamNumber()
     self.unit_data = 
     {
@@ -42,7 +42,7 @@ function spawn_special:SpawnLevelOne()
         self.unit_data.name = "npc_dota_creep_badguys_flagbearer"
     end
 
-    self.hide_unit_modifier:CreateUnit(self.unit_data)
+    self.create_unit_modifier:CreateUnit(self.unit_data)
 end
 
 function spawn_special:MoveUnitToPosition(unit, position)

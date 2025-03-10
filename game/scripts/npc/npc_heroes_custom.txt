@@ -60,7 +60,7 @@
 
 		"StatusHealth"        		"1000"                 	// Base health.
 		"StatusHealthRegen"     	"1.5"                 	// Base health regeneration
-		"StatusMana"        		"400"                   // Base mana.
+		"StatusMana"        		"10000"                   // Base mana.
 		"StatusManaRegen"     		"100.0"                 // Base mana regeneration 
 
 		"VisionDaytimeRange"    	"1800"                  // Range of vision at night time.
@@ -78,7 +78,7 @@
 		"Ability2"			"spawn_ranged"
 		"Ability3"			"spawn_special" 
 		"Ability4"        	"spawn_siege"
-		"Ability5"			"spawn_tank"
+		"Ability5"			"special_ability"
 		"Ability6"			"level_up"
 		"Ability7"			"generic_hidden"
 		"Ability8"        	"generic_hidden"
@@ -120,7 +120,7 @@
 
 		"StatusHealth"        		"1000"                 	// Base health.
 		"StatusHealthRegen"     	"1.5"                 	// Base health regeneration
-		"StatusMana"        		"400"                   // Base mana.
+		"StatusMana"        		"50000"                   // Base mana.
 		"StatusManaRegen"     		"100.0"                 // Base mana regeneration 
 
 		"VisionDaytimeRange"    	"1800"                  // Range of vision at night time.

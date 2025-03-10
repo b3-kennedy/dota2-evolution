@@ -13,6 +13,8 @@ require('filters')
 
 LinkLuaModifier("hide_unit_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("basic_root_modifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("no_mana_cost_modifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("create_unit_modifier", LUA_MODIFIER_MOTION_NONE)
 
 if USE_CUSTOM_ROSHAN then
 	require('components/roshan/init')
@@ -82,7 +84,23 @@ function barebones:OnNPCSpawned(keys)
 			end
 		end
 
+
+
 		unit:AddNewModifier(unit, nil, "hide_unit_modifier", {duration = -1})
+		unit:AddNewModifier(unit, nil, "no_mana_cost_modifier", {duration = -1})
+
+		if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			local spawn = Vector(0, -2322.42, 128)
+			local kv = {duration = -1, spawn_x = spawn.x, spawn_y = spawn.y, spawn_z = spawn.z}
+			unit:AddNewModifier(unit, nil, "create_unit_modifier", kv)
+		else
+			local spawn = Vector(195.836, 2322.42, 128)
+			local kv = {duration = -1, spawn_x = spawn.x, spawn_y = spawn.y, spawn_z = spawn.z}
+			unit:AddNewModifier(unit, nil, "create_unit_modifier", kv)
+		end
+
+		
+		
 	end
 end
 
@@ -93,7 +111,7 @@ function barebones:SpawnBuilderNpcs(unit)
 	-- }
 	if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 
-		 self.tower_builder = CreateUnitByName("npc_dota_tower_builder", Vector(-857.548, -2560.04, 128), true, unit, unit, unit:GetTeamNumber())
+		local tower_builder = CreateUnitByName("npc_dota_tower_builder", Vector(-857.548, -2560.04, 128), false, unit, unit, unit:GetTeamNumber())
 		for i=0, tower_builder:GetAbilityCount()-1 do
 			local ability = tower_builder:GetAbilityByIndex(i)
 			ability:SetLevel(1)
@@ -102,7 +120,7 @@ function barebones:SpawnBuilderNpcs(unit)
 		tower_builder:SetControllableByPlayer(unit:GetPlayerOwnerID(), true)
 		tower_builder:AddNewModifier(tower_builder, nil, "basic_root_modifier", {duration = -1})
 	else
-		local tower_builder = CreateUnitByName("npc_dota_tower_builder", Vector(-857.548, 2560.04, 128), true, unit, unit, unit:GetTeamNumber())
+		local tower_builder = CreateUnitByName("npc_dota_tower_builder", Vector(-857.548, 2560.04, 128), false, unit, unit, unit:GetTeamNumber())
 		for i=0, tower_builder:GetAbilityCount()-1 do
 			local ability = tower_builder:GetAbilityByIndex(i)
 			ability:SetLevel(1)

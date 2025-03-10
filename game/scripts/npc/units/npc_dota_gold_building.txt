@@ -1,11 +1,11 @@
 "DOTAUnits"
 {
-    "npc_dota_tower_builder"	
+    "npc_dota_gold_building"
     {
         // General
         //----------------------------------------------------------------
-        "Model"						"models/props_gameplay/fountain_of_life/fountain_of_life.vmdl" // Model.
-        "BaseClass"					"npc_dota_tower"
+        "Model"						"models/heroes/undying/undying_tower.vmdl" // Model.
+        "BaseClass"					"npc_dota_creep_lane"
         "SoundSet"					"Creep_Good_Melee"
         "GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
         "Level"						"1"
@@ -13,9 +13,9 @@
 
         // Abilities
         //----------------------------------------------------------------
-        "Ability1"					"build_tower"			// Ability 1
-        "Ability2"					"build_gold"			// Ability 2
-        "Ability3"					"build_barracks"			// Ability 3
+        "Ability1"					""			// Ability 1
+        "Ability2"					""			// Ability 2
+        "Ability3"					""			// Ability 3
         "Ability4"					""			// Ability 4
 
         // Armor
@@ -55,8 +55,8 @@
         //----------------------------------------------------------------
         "StatusHealth"				"550"		// Base health.
         "StatusHealthRegen"			"2.0"		// Health regeneration rate.
-        "StatusMana"				"50000"			// Base mana.
-        "StatusManaRegen"			"1000.0"		// Mana regeneration rate.		 
+        "StatusMana"				"0"			// Base mana.
+        "StatusManaRegen"			"0.0"		// Mana regeneration rate.		 
         
         // Vision
         //----------------------------------------------------------------

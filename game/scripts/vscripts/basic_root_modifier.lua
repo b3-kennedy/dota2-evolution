@@ -12,13 +12,13 @@ function basic_root_modifier:IsPurgable()
     return false -- Can be removed by dispels
 end
 
-function basic_root_modifier:DeclareFunctions()
-    return { MODIFIER_PROPERTY_DISABLE_TURNING }
-end
+-- function basic_root_modifier:DeclareFunctions()
+--     return { MODIFIER_PROPERTY_DISABLE_TURNING }
+-- end
 
-function basic_root_modifier:GetModifierDisableTurning()
-    return 1
-end
+-- function basic_root_modifier:GetModifierDisableTurning()
+--     return 1
+-- end
 
 function basic_root_modifier:CheckState()
     local state = {

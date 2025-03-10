@@ -7,10 +7,10 @@ require('queue')
 LinkLuaModifier("spawner_modifier_ranged", LUA_MODIFIER_MOTION_NONE)
 
 function spawn_ranged:OnSpellStart()
-    self.hide_unit_modifier = self:GetCaster():FindModifierByName("hide_unit_modifier")
-    self.spawn_pos = self:GetCaster():FindModifierByName("hide_unit_modifier").spawn_pos
-    self.enemy_spawn = self:GetCaster():FindModifierByName("hide_unit_modifier").enemy_spawn
-    self.queue = self:GetCaster():FindModifierByName("hide_unit_modifier").queue
+    self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
+    self.spawn_pos = self:GetCaster():FindModifierByName("create_unit_modifier").spawn_pos
+    self.enemy_spawn = self:GetCaster():FindModifierByName("create_unit_modifier").enemy_spawn
+    self.queue = self:GetCaster():FindModifierByName("create_unit_modifier").queue
     self.team = self:GetCaster():GetTeamNumber()
     self.unit_data = 
     {
@@ -41,7 +41,7 @@ function spawn_ranged:SpawnLevelOne()
         self.unit_data.name = "npc_dota_creep_badguys_ranged"
     end
 
-    self.hide_unit_modifier:CreateUnit(self.unit_data)
+    self.create_unit_modifier:CreateUnit(self.unit_data)
 
 end
 
