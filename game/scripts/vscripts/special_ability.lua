@@ -16,7 +16,7 @@ function special_ability:OnSpellStart()
         self:GetCaster(),
         self,
         "special_ability_modifier_thinker",
-        {duration = 6.5},
+        {duration = 7},
         self.start,
         self:GetCaster():GetTeamNumber(),
         false
