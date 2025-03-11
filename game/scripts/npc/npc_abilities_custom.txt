@@ -386,4 +386,49 @@
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
+
+	"spawn_heal"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"spawn_heal"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0 0.0 0.0 0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"	
+	}
+
+	"unit_heal"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"unit_heal"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+
+		"AbilityCastRange"			"500"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"	
+
+		"AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    	"AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP"
+	}
 }

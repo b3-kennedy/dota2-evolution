@@ -8,7 +8,7 @@ function gpm_modifier:OnCreated(kv)
         self:SetStackCount(1)
     end
     
-    self.gpm = self:GetStackCount()
+    self.gpm = self:GetStackCount() * 2
 
     self:StartIntervalThink(1)
 
@@ -26,7 +26,7 @@ function gpm_modifier:OnRefresh(kv)
 
     self:SetStackCount(self:GetStackCount()+1)
 
-    self.gpm = self:GetStackCount()
+    self.gpm = self:GetStackCount() * 2
 end
 
 function gpm_modifier:OnIntervalThink()
