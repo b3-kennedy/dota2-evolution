@@ -19,7 +19,7 @@ function spawn_tank:OnSpellStart()
         name = "", 
         spawn_time = 4, 
         ability = "spawn_tank",
-        gold_cost = 200,
+        gold_cost = self:GetManaCost(self:GetLevel()),
 
     }
 

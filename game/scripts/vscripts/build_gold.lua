@@ -3,7 +3,7 @@ build_gold = class({})
 LinkLuaModifier("gpm_modifier", LUA_MODIFIER_MOTION_NONE)
 
 function build_gold:OnSpellStart()
-    if PlayerResource:GetGold(self:GetCaster():GetPlayerOwnerID()) >= 250 then
+    if PlayerResource:GetGold(self:GetCaster():GetPlayerOwnerID()) >= self:GetManaCost(self:GetLevel()) then
         self.caster = self:GetCaster()
         self.mouse_pos = self:GetCursorPosition()
         self.player = PlayerResource:GetSelectedHeroEntity(self:GetCaster():GetPlayerOwnerID())
@@ -14,7 +14,7 @@ function build_gold:OnSpellStart()
 
         local building = CreateUnitByName("npc_dota_gold_building", self.mouse_pos, false, self.player, self.player, self.player:GetTeamNumber())
 
-        PlayerResource:SpendGold(self:GetCaster():GetPlayerOwnerID(),250,DOTA_ModifyGold_AbilityCost)
+        PlayerResource:SpendGold(self:GetCaster():GetPlayerOwnerID(),self:GetManaCost(self:GetLevel()),DOTA_ModifyGold_AbilityCost)
 
         local kv = {duration = -1}
 

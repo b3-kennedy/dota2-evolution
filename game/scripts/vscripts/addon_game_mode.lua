@@ -36,6 +36,7 @@ function Precache(context)
 	PrecacheModel("models/props_structures/radiant_tower001.vmdl", context)
 	PrecacheModel("models/heroes/undying/undying_tower.vmdl", context)
 	PrecacheModel("models/props_structures/good_barracks_melee001.vmdl", context)
+	PrecacheModel("models/props_structures/good_barracks_ranged001.vmdl", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", context)
 
 	-- Models can also be precached by folder or individually

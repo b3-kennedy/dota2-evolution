@@ -15,7 +15,7 @@ function spawn_special:OnSpellStart()
         name = "npc_dota_creep_goodguys_flagbearer", 
         spawn_time = 2, 
         ability = "spawn_special",
-        gold_cost = 50,
+        gold_cost = self:GetManaCost(self:GetLevel()),
         ability1 = "special_creep_aura"
     }
 

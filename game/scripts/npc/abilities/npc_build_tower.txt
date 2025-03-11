@@ -41,13 +41,35 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250"
+		"AbilityManaCost"				"100"
 	}
 
 	"build_barracks"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"build_barracks"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+        "AbilityCastRange"               "2000"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"250"
+	}
+
+	"build_special_barracks"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"build_special_barracks"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
 

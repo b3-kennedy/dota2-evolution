@@ -1,10 +1,10 @@
 "DOTAUnits"
 {
-    "npc_dota_tower_builder"	
+    "npc_dota_special_unit_creator"	
     {
         // General
         //----------------------------------------------------------------
-        "Model"						"models/props_gameplay/fountain_of_life/fountain_of_life.vmdl" // Model.
+        "Model"						"models/props_structures/good_barracks_ranged001.vmdl" // Model.
         "BaseClass"					"npc_dota_tower"
         "SoundSet"					"Creep_Good_Melee"
         "GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
@@ -13,10 +13,10 @@
 
         // Abilities
         //----------------------------------------------------------------
-        "Ability1"					"build_tower"			// Ability 1
-        "Ability2"					"build_gold"			// Ability 2
-        "Ability3"					"build_barracks"			// Ability 3
-        "Ability4"					"build_special_barracks"			// Ability 4
+        "Ability1"					"spawn_tank"			// Ability 1
+        "Ability2"					"spawn_scout_hawk"			// Ability 2
+        "Ability3"					"spawn_special"			// Ability 3
+        "Ability4"					"spawn_siege"			// Ability 4
 
         // Armor
         //----------------------------------------------------------------
@@ -43,13 +43,7 @@
         //----------------------------------------------------------------
         "BountyXP"					"0"		// Experience earn.
         "BountyGoldMin"				"50"		// Gold earned min.
-        "BountyGoldMax"				"50"		// Gold earned max.
-
-        // Movement
-        //----------------------------------------------------------------
-        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed"				"325"		// Speed.
-        "MovementTurnRate"          "0.0"			
+        "BountyGoldMax"				"50"		// Gold earned max.		
 
         // Status
         //----------------------------------------------------------------

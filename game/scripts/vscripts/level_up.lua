@@ -11,7 +11,7 @@ end
 function level_up:OnSpellStart()
     self.current_max_level = 4
     
-    PlayerResource:SpendGold(self:GetCaster():GetPlayerOwnerID(),self:GetManaCost(self:GetLevel()),DOTA_ModifyGold_AbilityCost)
+    PlayerResource:SpendGold(self:GetCaster():GetPlayerOwnerID(),self:GetManaCost(self:GetLevel()-1),DOTA_ModifyGold_AbilityCost)
 
     for i=0, self:GetCaster():GetAbilityCount()-1 do
         local ability = self:GetCaster():GetAbilityByIndex(i)

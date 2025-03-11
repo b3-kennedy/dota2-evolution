@@ -1,8 +1,6 @@
-build_barracks = class({})
+build_special_barracks = class({})
 
-LinkLuaModifier("create_unit_modifier", LUA_MODIFIER_MOTION_NONE)
-
-function build_barracks:OnSpellStart()
+function build_special_barracks:OnSpellStart()
     if PlayerResource:GetGold(self:GetCaster():GetPlayerOwnerID()) >= self:GetManaCost(self:GetLevel()) then
         self.caster = self:GetCaster()
         self.mouse_pos = self:GetCursorPosition()
@@ -12,11 +10,11 @@ function build_barracks:OnSpellStart()
 
         self.caster:SetForwardVector(dir)
 
-        local building = CreateUnitByName("npc_dota_unit_creator", self.mouse_pos, false, self.player, self.player, self.player:GetTeamNumber())
+        local building = CreateUnitByName("npc_dota_special_unit_creator", self.mouse_pos, false, self.player, self.player, self.player:GetTeamNumber())
 
         local kv = {
             duration = -1, 
-            spawn_x = self.mouse_pos.x, 
+            spawn_x = self.mouse_pos.x + 300, 
             spawn_y = self.mouse_pos.y, 
             spawn_z = self.mouse_pos.z,
             player = self.player:entindex()

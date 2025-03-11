@@ -11,6 +11,8 @@ require('events')
 -- filters.lua
 require('filters')
 
+require('positions')
+
 LinkLuaModifier("hide_unit_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("basic_root_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("no_mana_cost_modifier", LUA_MODIFIER_MOTION_NONE)
@@ -90,11 +92,11 @@ function barebones:OnNPCSpawned(keys)
 		unit:AddNewModifier(unit, nil, "no_mana_cost_modifier", {duration = -1})
 
 		if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			local spawn = Vector(0, -2322.42, 128)
+			local spawn = PLAYER_SPAWN_RADIANT
 			local kv = {duration = -1, spawn_x = spawn.x, spawn_y = spawn.y, spawn_z = spawn.z, player = unit:entindex()}
 			unit:AddNewModifier(unit, nil, "create_unit_modifier", kv)
 		else
-			local spawn = Vector(195.836, 2322.42, 128)
+			local spawn = PLAYER_SPAWN_DIRE
 			local kv = {duration = -1, spawn_x = spawn.x, spawn_y = spawn.y, spawn_z = spawn.z,  player = unit:entindex()}
 			unit:AddNewModifier(unit, nil, "create_unit_modifier", kv)
 		end
@@ -111,7 +113,7 @@ function barebones:SpawnBuilderNpcs(unit)
 	-- }
 	if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 
-		local tower_builder = CreateUnitByName("npc_dota_tower_builder", Vector(-857.548, -2560.04, 128), false, unit, unit, unit:GetTeamNumber())
+		local tower_builder = CreateUnitByName("npc_dota_tower_builder", BUILDING_SPAWN_RADIANT, false, unit, unit, unit:GetTeamNumber())
 		for i=0, tower_builder:GetAbilityCount()-1 do
 			local ability = tower_builder:GetAbilityByIndex(i)
 			ability:SetLevel(1)
@@ -120,7 +122,7 @@ function barebones:SpawnBuilderNpcs(unit)
 		tower_builder:SetControllableByPlayer(unit:GetPlayerOwnerID(), true)
 		tower_builder:AddNewModifier(tower_builder, nil, "basic_root_modifier", {duration = -1})
 	else
-		local tower_builder = CreateUnitByName("npc_dota_tower_builder", Vector(-857.548, 2560.04, 128), false, unit, unit, unit:GetTeamNumber())
+		local tower_builder = CreateUnitByName("npc_dota_tower_builder", BUILDING_SPAWN_DIRE, false, unit, unit, unit:GetTeamNumber())
 		for i=0, tower_builder:GetAbilityCount()-1 do
 			local ability = tower_builder:GetAbilityByIndex(i)
 			ability:SetLevel(1)
@@ -147,11 +149,15 @@ function barebones:InitGameMode()
 	if radiant_ancient then
 		radiant_ancient:RemoveModifierByName("modifier_invulnerable")
 		radiant_ancient:RemoveModifierByName("modifier_backdoor_protection")
+		radiant_ancient:GetAbilityByIndex(0):SetHidden(true)
+		radiant_ancient:GetAbilityByIndex(1):SetHidden(true)
 	end
 
 	if dire_ancient then
 		dire_ancient:RemoveModifierByName("modifier_invulnerable")
 		dire_ancient:RemoveModifierByName("modifier_backdoor_protection")
+		dire_ancient:GetAbilityByIndex(0):SetHidden(true)
+		dire_ancient:GetAbilityByIndex(1):SetHidden(true)
 	end
 	-- Setup rules
 	GameRules:SetSameHeroSelectionEnabled(ALLOW_SAME_HERO_SELECTION)

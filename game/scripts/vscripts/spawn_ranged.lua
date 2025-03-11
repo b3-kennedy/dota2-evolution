@@ -17,7 +17,7 @@ function spawn_ranged:OnSpellStart()
         name = "npc_dota_creep_goodguys_ranged", 
         spawn_time = 1.5, 
         ability = "spawn_ranged", 
-        gold_cost = 30,
+        gold_cost = self:GetManaCost(self:GetLevel()),
     }
 
     local testunit = CreateUnitByName("npc_dota_creep_badguys_ranged", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)

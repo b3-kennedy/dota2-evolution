@@ -41,6 +41,12 @@ function create_unit_modifier:Spawn(data)
     local ability = self:GetParent():FindAbilityByName(data.ability)
     local spawn_pos = ability.spawn_pos
     local unit = CreateUnitByName(data.name, spawn_pos, true, self.player, self.player, self.player:GetTeamNumber())
+
+    if data.is_controllable then
+        unit:SetOwner(self.player)
+        unit:SetControllableByPlayer(self.player:GetPlayerOwnerID(), true)
+    end
+
     Timers:CreateTimer(0.1, function()
         ability:MoveUnitToPosition(unit, ability.enemy_spawn)
     end)

@@ -23,7 +23,7 @@ function spawn_melee:OnSpellStart()
         name = "", 
         spawn_time = 1, 
         ability = "spawn_melee",
-        gold_cost = 25,
+        gold_cost = self:GetManaCost(self:GetLevel()),
 
     }
 

@@ -32,7 +32,7 @@ function special_ability_modifier_thinker:OnIntervalThink()
     )
 
     local radius = 500  -- AoE radius
-    local damage = 2500  -- Amount of damage to deal
+    local damage = 1000  -- Amount of damage to deal
     local damage_type = DAMAGE_TYPE_MAGICAL  -- Damage type (MAGICAL, PHYSICAL, etc.)
 
 
