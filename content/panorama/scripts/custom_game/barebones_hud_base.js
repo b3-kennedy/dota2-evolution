@@ -115,5 +115,5 @@ function AddNotification(msg, panel) {
   GameEvents.Subscribe("bottom_notification", BottomNotification);
   GameEvents.Subscribe("top_remove_notification", TopRemoveNotification);
   GameEvents.Subscribe("bottom_remove_notification", BottomRemoveNotification);
+  
 })();
-

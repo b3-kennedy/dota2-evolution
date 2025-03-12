@@ -5,7 +5,7 @@
         // General
         //----------------------------------------------------------------
         "Model"						"models/heroes/undying/undying_tower.vmdl" // Model.
-        "BaseClass"					"npc_dota_creep_lane"
+        "BaseClass"					"npc_dota_tower"
         "SoundSet"					"Creep_Good_Melee"
         "GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
         "Level"						"1"
@@ -20,19 +20,7 @@
 
         // Armor
         //----------------------------------------------------------------
-        "ArmorPhysical"				"2"			// Physical protection.
-
-        // Attack
-        //----------------------------------------------------------------
-        "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-        "AttackDamageMin"			"21"		// Damage range min.
-        "AttackDamageMax"			"26"		// Damage range max.
-        "AttackRate"				"1.0"		// Speed of attack.
-        "AttackAnimationPoint"		"0.467"		// Normalized time in animation cycle to attack.
-        "AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
-        "AttackRange"				"100"		// Range within a target can be attacked.
-        "ProjectileModel"			"" 			// No projectile for melee.
-        "ProjectileSpeed"			""			// N/A for melee.	     
+        "ArmorPhysical"				"2"			// Physical protection.     
 
         // Bounds
         //----------------------------------------------------------------
@@ -43,13 +31,7 @@
         //----------------------------------------------------------------
         "BountyXP"					"0"		// Experience earn.
         "BountyGoldMin"				"50"		// Gold earned min.
-        "BountyGoldMax"				"50"		// Gold earned max.
-
-        // Movement
-        //----------------------------------------------------------------
-        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed"				"325"		// Speed.
-        "MovementTurnRate"          "0.0"			
+        "BountyGoldMax"				"50"		// Gold earned max.			
 
         // Status
         //----------------------------------------------------------------

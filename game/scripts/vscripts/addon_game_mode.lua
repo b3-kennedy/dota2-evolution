@@ -40,6 +40,12 @@ function Precache(context)
 	PrecacheModel("models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl", context)
 	PrecacheModel("models/items/beastmaster/hawk/fotw_eagle/fotw_eagle.vmdl", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", context)
+	PrecacheResource("particle", "particles/radiant_fx2/good_ancient001_ambient.vpcf", context)
+	PrecacheResource("particle", "particles/creeps/lane_creeps/creep_radiant_hulk_swipe_right.vpcf", context)
+	PrecacheResource("particle", "particles/creeps/lane_creeps/creep_radiant_hulk_swipe_left.vpcf", context)
+	PrecacheResource("particle", "particles/creeps/lane_creeps/creep_dire_hulk_swipe_right.vpcf", context)
+	PrecacheResource("particle", "particles/creeps/lane_creeps/creep_dire_hulk_swipe_right.vpcf", context)
+	
 
 	-- Models can also be precached by folder or individually
 	-- PrecacheModel should generally used over PrecacheResource for individual models

@@ -17,6 +17,7 @@ LinkLuaModifier("hide_unit_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("basic_root_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("no_mana_cost_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("create_unit_modifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("gold_check_modifier", LUA_MODIFIER_MOTION_NONE)
 
 if USE_CUSTOM_ROSHAN then
 	require('components/roshan/init')
@@ -109,11 +110,11 @@ end
 function barebones:SpawnBuilderNpcs(unit)
 
 	-- {
-	-- 	origin = "-857.548 -2560.04 128.062"
+	-- 	origin = "0 -2589.26 140"
 	-- }
 	if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 
-		local tower_builder = CreateUnitByName("npc_dota_tower_builder", BUILDING_SPAWN_RADIANT, false, unit, unit, unit:GetTeamNumber())
+		local tower_builder = CreateUnitByName("npc_dota_tower_builder_good", Vector(0,-2589.26,140), false, unit, unit, unit:GetTeamNumber())
 		for i=0, tower_builder:GetAbilityCount()-1 do
 			local ability = tower_builder:GetAbilityByIndex(i)
 			ability:SetLevel(1)
@@ -121,8 +122,28 @@ function barebones:SpawnBuilderNpcs(unit)
 		tower_builder:SetOwner(unit)
 		tower_builder:SetControllableByPlayer(unit:GetPlayerOwnerID(), true)
 		tower_builder:AddNewModifier(tower_builder, nil, "basic_root_modifier", {duration = -1})
+		tower_builder:RemoveModifierByName("modifier_invulnerable")
+
+		-- {
+		-- 	origin = "631.045 -2264.37 128.062"
+		-- }
+
+		local barracks = CreateUnitByName("npc_dota_unit_creator", Vector(631.045, -2264.37, 128.062), false, unit, unit, unit:GetTeamNumber())
+		barracks:SetOwner(unit)
+		barracks:SetControllableByPlayer(unit:GetPlayerOwnerID(), true)
+		local kv = {
+            duration = -1, 
+            spawn_x = PLAYER_SPAWN_RADIANT.x, 
+            spawn_y = PLAYER_SPAWN_RADIANT.y, 
+            spawn_z = PLAYER_SPAWN_RADIANT.z,
+            player = unit:entindex()
+        }
+		barracks:AddNewModifier(barracks, barracks, "create_unit_modifier", kv)
+		barracks:AddNewModifier(barracks, nil, "basic_root_modifier", {duration = -1})
+		barracks:AddNewModifier(barracks, nil, "modifier_invulnerable", {duration = -1})
+
 	else
-		local tower_builder = CreateUnitByName("npc_dota_tower_builder", BUILDING_SPAWN_DIRE, false, unit, unit, unit:GetTeamNumber())
+		local tower_builder = CreateUnitByName("npc_dota_tower_builder_bad", Vector(0,2589.26,140), false, unit, unit, unit:GetTeamNumber())
 		for i=0, tower_builder:GetAbilityCount()-1 do
 			local ability = tower_builder:GetAbilityByIndex(i)
 			ability:SetLevel(1)
@@ -130,6 +151,20 @@ function barebones:SpawnBuilderNpcs(unit)
 		tower_builder:SetOwner(unit)
 		tower_builder:SetControllableByPlayer(unit:GetPlayerOwnerID(), true)
 		tower_builder:AddNewModifier(tower_builder, nil, "basic_root_modifier", {duration = -1})
+		tower_builder:RemoveModifierByName("modifier_invulnerable")
+		local barracks = CreateUnitByName("npc_dota_unit_creator", Vector(631.045, 2264.37, 128.062), false, unit, unit, unit:GetTeamNumber())
+		barracks:SetOwner(unit)
+		barracks:SetControllableByPlayer(unit:GetPlayerOwnerID(), true)
+		local kv = {
+            duration = -1, 
+            spawn_x = PLAYER_SPAWN_DIRE.x, 
+            spawn_y = PLAYER_SPAWN_DIRE.y, 
+            spawn_z = PLAYER_SPAWN_DIRE.z,
+            player = unit:entindex()
+        }
+		barracks:AddNewModifier(barracks, barracks, "create_unit_modifier", kv)
+		barracks:AddNewModifier(barracks, nil, "basic_root_modifier", {duration = -1})
+		barracks:AddNewModifier(barracks, nil, "modifier_invulnerable", {duration = -1})
 	end
 
 	
@@ -142,23 +177,31 @@ end
 function barebones:InitGameMode()
 	DebugPrint("[BAREBONES] Starting to load Game Rules.")
 
+	-- {
+	-- 	origin = "0 -2589.26 140"
+	-- }
 
-	local radiant_ancient = Entities:FindByName(nil, "dota_goodguys_fort")
-	local dire_ancient = Entities:FindByName(nil, "dota_badguys_fort")
 
-	if radiant_ancient then
-		radiant_ancient:RemoveModifierByName("modifier_invulnerable")
-		radiant_ancient:RemoveModifierByName("modifier_backdoor_protection")
-		radiant_ancient:GetAbilityByIndex(0):SetHidden(true)
-		radiant_ancient:GetAbilityByIndex(1):SetHidden(true)
-	end
 
-	if dire_ancient then
-		dire_ancient:RemoveModifierByName("modifier_invulnerable")
-		dire_ancient:RemoveModifierByName("modifier_backdoor_protection")
-		dire_ancient:GetAbilityByIndex(0):SetHidden(true)
-		dire_ancient:GetAbilityByIndex(1):SetHidden(true)
-	end
+	-- local radiant_ancient = Entities:FindByName(nil, "dota_goodguys_fort")
+	-- local dire_ancient = Entities:FindByName(nil, "dota_badguys_fort")
+
+
+
+	-- if radiant_ancient then
+	-- 	radiant_ancient:RemoveModifierByName("modifier_invulnerable")
+	-- 	radiant_ancient:RemoveModifierByName("modifier_backdoor_protection")
+	-- 	radiant_ancient:GetAbilityByIndex(0):SetHidden(true)
+	-- 	radiant_ancient:GetAbilityByIndex(1):SetHidden(true)
+	-- 	radiant_ancient:SetMana(20000)
+	-- end
+
+	-- if dire_ancient then
+	-- 	dire_ancient:RemoveModifierByName("modifier_invulnerable")
+	-- 	dire_ancient:RemoveModifierByName("modifier_backdoor_protection")
+	-- 	dire_ancient:GetAbilityByIndex(0):SetHidden(true)
+	-- 	dire_ancient:GetAbilityByIndex(1):SetHidden(true)
+	-- end
 	-- Setup rules
 	GameRules:SetSameHeroSelectionEnabled(ALLOW_SAME_HERO_SELECTION)
 	GameRules:SetUseUniversalShopMode(UNIVERSAL_SHOP_MODE)

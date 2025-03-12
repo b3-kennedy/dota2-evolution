@@ -2,6 +2,7 @@ create_unit_modifier = class({})
 
 require('queue')
 require('libraries/timers')
+require('libraries/notifications')
 
 function create_unit_modifier:IsPurgable()
 	return false
@@ -28,7 +29,19 @@ function create_unit_modifier:CreateUnit(data)
         --play buy sound
         EmitSoundOnClient("Hero_Furion.ForceOfNature", PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()))
     else
-        --play error sound
+        -- Notifications:Bottom(PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()), {
+        --     text = "Not Enough Gold", 
+        --     duration = 1, 
+        --     style = {
+        --         color = "white",  -- Set text color to white for contrast
+        --         ["font-size"] = "15px", 
+        --         ["background-color"] = "rgba(255, 0, 0, 0.7)",  -- Red background with 70% opacity (translucent)
+        --         padding_left = "20px",  -- Add padding to the left
+        --         padding_right = "20px",  -- Add padding to the right
+        --     }
+        -- })
+
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()), "display_custom_error", { message = "Not Enough Gold" })
     end
     
     -- if self.queue.size() > 0 then
@@ -86,13 +99,6 @@ function create_unit_modifier:OnCreated( kv )
     end
 
     self:StartIntervalThink(0.1)
-
-    for i=0, self:GetParent():GetAbilityCount()-1 do
-        local ability = self:GetParent():GetAbilityByIndex(i)
-        if ability then
-            ability:SetActivated(false)
-        end
-    end
 end
 --------------------------------------------------------------------------------
 
@@ -115,7 +121,6 @@ function create_unit_modifier:EnoughGoldForAbilityCheck()
         local ability = self:GetParent():GetAbilityByIndex(i)
         local gold = PlayerResource:GetGold(self:GetParent():GetPlayerOwnerID())
         if ability then
-            print("ability has unit data")
             if gold < ability:GetManaCost(ability:GetLevel()) then
                 ability:SetActivated(false)
             else
@@ -129,7 +134,7 @@ end
 function create_unit_modifier:OnIntervalThink()
 
     self:ManageQueue()
-    self:EnoughGoldForAbilityCheck()
+    --self:EnoughGoldForAbilityCheck()
 
 
 end

@@ -1,0 +1,90 @@
+"DOTAUnits"
+{
+    "npc_dota_radiant_ancient"
+    {
+        // General
+        "BaseClass"                 "npc_dota_tower"      // Inherits building properties
+        "Model"                     "models/props_structures/radiant_ancient001.vmdl" // Radiant Ancient model (use "dire_ancient001.vmdl" for Dire)
+        "ModelScale"                "1.0"
+        "Level"                     "1"
+        "UnitLabel"                 "ancient"
+        "TeamName"                  "DOTA_TEAM_GOODGUYS"    // Radiant by default (use "DOTA_TEAM_BADGUYS" for Dire)
+
+        // Stats
+        "StatusHealth"              "4250"                  // Default Ancient HP
+        "StatusHealthRegen"         "3.0"                   // Slight regen like the default
+        "StatusMana"                "50000"
+        "ArmorPhysical"             "15"                    // Default Ancient armor
+        "MagicalResistance"         "25"                    // Magic resistance
+        "AttackDamageMin"           "0"                     // No attack by default
+        "AttackDamageMax"           "0"
+        "AttackRate"                "0"                     // No attack
+        "AttackRange"               "0"
+        "VisionDaytimeRange"        "1800"                  // Vision range like default Ancient
+        "VisionNighttimeRange"      "1200"
+
+        // Abilities (optional, can leave blank or add custom ones)
+        "Ability1"                  "build_tower" // Default backdoor protection ability
+        "Ability2"                  "build_gold"
+        "Ability3"                  "build_barracks"
+        "Ability4"                  "build_special_barracks"
+
+        // Bounds and movement (Ancient is static)
+        "BoundsHullName"            "DOTA_HULL_SIZE_BUILDING"
+        "MovementCapabilities"      "DOTA_UNIT_CAP_NO_MOVE" // Immobile
+        "IsAncient"                 "1"                     // Marks it as an Ancient (affects game rules)
+        "ConsideredHero"            "0"                     // Not a hero
+        "CanBeDominated"            "0"                     // Can’t be controlled
+
+        // Sound
+        "SoundSet"                  "Building_Generic"      // Generic building sounds
+        "GameSoundsFile"            "soundevents/game_sounds_buildings.vsndevts"
+
+        // Backdoor protection (if you want it)
+        "BackdoorProtectionEnabled" "0"                     // Enables backdoor regen when not near enemy creeps
+    }
+
+    "npc_dota_dire_ancient"
+    {
+        // General
+        "BaseClass"                 "npc_dota_tower"      // Inherits building properties
+        "Model"                     "models/props_structures/bad_ancient002.vmdl" // Radiant Ancient model (use "dire_ancient001.vmdl" for Dire)
+        "ModelScale"                "1.0"
+        "Level"                     "1"
+        "UnitLabel"                 "ancient"
+        "TeamName"                  "DOTA_TEAM_BADGUYS"    // Radiant by default (use "DOTA_TEAM_BADGUYS" for Dire)
+
+        // Stats
+        "StatusHealth"              "4250"                  // Default Ancient HP
+        "StatusHealthRegen"         "3.0"                   // Slight regen like the default
+        "StatusMana"                "50000"
+        "ArmorPhysical"             "15"                    // Default Ancient armor
+        "MagicalResistance"         "25"                    // Magic resistance
+        "AttackDamageMin"           "0"                     // No attack by default
+        "AttackDamageMax"           "0"
+        "AttackRate"                "0"                     // No attack
+        "AttackRange"               "0"
+        "VisionDaytimeRange"        "1800"                  // Vision range like default Ancient
+        "VisionNighttimeRange"      "1200"
+
+        // Abilities (optional, can leave blank or add custom ones)
+        "Ability1"                  "build_tower" // Default backdoor protection ability
+        "Ability2"                  "build_gold"
+        "Ability3"                  "build_barracks"
+        "Ability4"                  "build_special_barracks"
+
+        // Bounds and movement (Ancient is static)
+        "BoundsHullName"            "DOTA_HULL_SIZE_BUILDING"
+        "MovementCapabilities"      "DOTA_UNIT_CAP_NO_MOVE" // Immobile
+        "IsAncient"                 "1"                     // Marks it as an Ancient (affects game rules)
+        "ConsideredHero"            "0"                     // Not a hero
+        "CanBeDominated"            "0"                     // Can’t be controlled
+
+        // Sound
+        "SoundSet"                  "Building_Generic"      // Generic building sounds
+        "GameSoundsFile"            "soundevents/game_sounds_buildings.vsndevts"
+
+        // Backdoor protection (if you want it)
+        "BackdoorProtectionEnabled" "0"                     // Enables backdoor regen when not near enemy creeps
+    }
+}

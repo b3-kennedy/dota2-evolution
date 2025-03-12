@@ -16,6 +16,6 @@ function build_tower:OnSpellStart()
         PlayerResource:SpendGold(self:GetCaster():GetPlayerOwnerID(),self:GetManaCost(self:GetLevel()),DOTA_ModifyGold_AbilityCost)
 
     else
-        print("NOT ENOUGH GOLD TO BUILD TOWER")
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(self:GetCaster():GetPlayerOwnerID()), "display_custom_error", { message = "Not Enough Gold" })
     end
 end

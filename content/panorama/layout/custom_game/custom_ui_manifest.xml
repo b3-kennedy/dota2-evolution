@@ -2,12 +2,13 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/init.js" />
 		<include src="file://{resources}/scripts/playertables/playertables_base.js"/>
+		
 	</scripts>
 
 	<Panel>
 		<!-- CustomUIElements go here.-->
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/selection.xml"/>
-
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_hud_base.xml"/>
 		<!-- From Overthrow:
         <CustomUIElement type="HudTopBar"           layoutfile="file://{resources}/layout/custom_game/multiteam_top_scoreboard.xml"/>
         <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/overthrow_item_notification.xml"/>

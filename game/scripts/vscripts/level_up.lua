@@ -4,7 +4,7 @@ function level_up:OnAbilityPhaseStart()
     self.gold_cost = 700
     if PlayerResource:GetGold(self:GetCaster():GetPlayerOwnerID()) < self.gold_cost then
         self:GetCaster():Interrupt()
-        print("NOT ENOUGH GOLD")
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(self:GetCaster():GetPlayerOwnerID()), "display_custom_error", { message = "Not Enough Gold" })
     end
 end
 

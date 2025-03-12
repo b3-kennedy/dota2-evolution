@@ -23,6 +23,6 @@ function build_gold:OnSpellStart()
         self.player:AddNewModifier(self.player, self, "gpm_modifier", kv)
 
     else
-        print("NOT ENOUGH GOLD TO BUILD GOLD BUILDING")
+        CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(self:GetCaster():GetPlayerOwnerID()), "display_custom_error", { message = "Not Enough Gold" })
     end
 end
