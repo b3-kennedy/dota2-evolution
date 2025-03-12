@@ -64,6 +64,8 @@ function create_unit_modifier:OnCreated( kv )
 
     self.queue = Queue:new()
 
+
+
     self.last_spawn_time = GameRules:GetGameTime()
     local player_index = kv.player
     self.player = EntIndexToHScript(player_index)
@@ -84,6 +86,13 @@ function create_unit_modifier:OnCreated( kv )
     end
 
     self:StartIntervalThink(0.1)
+
+    for i=0, self:GetParent():GetAbilityCount()-1 do
+        local ability = self:GetParent():GetAbilityByIndex(i)
+        if ability then
+            ability:SetActivated(false)
+        end
+    end
 end
 --------------------------------------------------------------------------------
 
@@ -101,11 +110,13 @@ function create_unit_modifier:EnoughGoldForAbilityCheck()
 
     if not IsServer() then return end
 
+
     for i=0, self:GetParent():GetAbilityCount()-1 do
         local ability = self:GetParent():GetAbilityByIndex(i)
         local gold = PlayerResource:GetGold(self:GetParent():GetPlayerOwnerID())
-        if ability.unit_data then
-            if gold < ability.unit_data.gold_cost then
+        if ability then
+            print("ability has unit data")
+            if gold < ability:GetManaCost(ability:GetLevel()) then
                 ability:SetActivated(false)
             else
                 ability:SetActivated(true)

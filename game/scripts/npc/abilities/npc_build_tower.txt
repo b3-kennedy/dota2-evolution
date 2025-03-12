@@ -6,10 +6,12 @@
 		"ScriptFile"				"build_tower"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"		"omniknight_guardian_angel"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0"
+		
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -28,6 +30,7 @@
 		"ScriptFile"				"build_gold"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"		"alchemist_goblins_greed"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -50,6 +53,7 @@
 		"ScriptFile"				"build_barracks"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"		"chen_holy_persuasion"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -72,6 +76,7 @@
 		"ScriptFile"				"build_special_barracks"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"		"chen_divine_favor"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

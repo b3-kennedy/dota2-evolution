@@ -202,6 +202,7 @@
 		"ScriptFile"				"spawn_melee"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"		"meepo_ransack"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -222,6 +223,7 @@
 		"ScriptFile"				"spawn_ranged"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"		"mirana_arrow"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -242,6 +244,7 @@
 		"ScriptFile"				"spawn_special"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"		"beastmaster_inner_beast"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -262,7 +265,7 @@
 		"ScriptFile"				"special_creep_aura"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-
+		"AbilityTextureName"		"beastmaster_inner_beast"
 
 		"AbilityCastRange"			"800"
 
@@ -279,12 +282,13 @@
 		"AbilityManaCost"				"0"
 	}
 
-		"spawn_siege"
+	"spawn_siege"
 	{
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"spawn_siege"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"		"primal_beast_rock_throw"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -304,8 +308,8 @@
 		"BaseClass"					"ability_lua"
 		"ScriptFile"				"spawn_tank"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"		"dragon_knight_dragon_tail"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
@@ -316,7 +320,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200"		
+		"AbilityManaCost"				"100"		
 	}
 
 	"level_up"
@@ -325,7 +329,7 @@
 		"ScriptFile"				"level_up"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-
+		"AbilityTextureName"		"attribute_bonus"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"5 10 15 20"
@@ -345,6 +349,8 @@
 		"ScriptFile"				"special_ability"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"		"omniknight_purification"
+
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -365,7 +371,7 @@
 		"ScriptFile"				"spawn_scout_hawk"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-
+		"AbilityTextureName"		"beastmaster_call_of_the_wild_hawk"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
@@ -376,7 +382,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"	
+		"AbilityManaCost"				"50"	
 	}
 
 	"invisibility"
@@ -393,6 +399,7 @@
 		"ScriptFile"				"spawn_heal"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"		"enchantress_natures_attendants"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -404,7 +411,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"	
+		"AbilityManaCost"				"50"	
 	}
 
 	"unit_heal"
