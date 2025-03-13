@@ -8,7 +8,7 @@
         "BaseClass"					"npc_dota_tower"
         "SoundSet"					"Creep_Good_Melee"
         "GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
-        "Level"						"1"  
+        "Level"						"4"  
         "ModelScale" 				"1.0"
 
         // Abilities

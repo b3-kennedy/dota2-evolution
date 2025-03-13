@@ -90,8 +90,19 @@ function CDOTA_PlayerResource:GetSelectedEntities(playerID)
 end
 
 function CDOTA_PlayerResource:GetMainSelectedEntity(playerID)
-    local selectedEntities = self:GetSelectedEntities(playerID) 
+    local selectedEntities = self:GetSelectedEntities(playerID)
     return selectedEntities and selectedEntities["0"]
+end
+
+function CDOTA_PlayerResource:GetSelectedEntityCount(playerID)
+    local selectedEntities = self:GetSelectedEntities(playerID)
+    local count = 0
+    if selectedEntities then
+        for key, value in pairs(selectedEntities) do
+            count = count + 1
+        end
+    end
+    return selectedEntities and count
 end
 
 function CDOTA_PlayerResource:IsUnitSelected(playerID, unit)

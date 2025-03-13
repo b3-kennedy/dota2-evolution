@@ -20,8 +20,8 @@
 
         // Attack
         "AttackCapabilities"            "DOTA_UNIT_CAP_RANGED_ATTACK"
-        "AttackDamageMin"               "23"
-        "AttackDamageMax"               "26"
+        "AttackDamageMin"               "27"
+        "AttackDamageMax"               "33"
         "AttackRate"                    "1.5"
         "AttackAnimationPoint"          "0.5"
         "AttackAcquisitionRange"        "800"
@@ -70,6 +70,9 @@
             "XPGain"                    "0"
         }
     }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
     "npc_dota_creep_badguys_ranged"
     {
         // General
@@ -89,8 +92,153 @@
 
         // Attack
         "AttackCapabilities"            "DOTA_UNIT_CAP_RANGED_ATTACK"
-        "AttackDamageMin"               "23"
-        "AttackDamageMax"               "26"
+        "AttackDamageMin"               "27"
+        "AttackDamageMax"               "33"
+        "AttackRate"                    "1.5"
+        "AttackAnimationPoint"          "0.5"
+        "AttackAcquisitionRange"        "800"
+        "AttackRange"                   "500"
+        "ProjectileModel"               "particles/base_attacks/ranged_badguy.vpcf"
+        "ProjectileSpeed"               "900"
+
+        // Bounds
+        "RingRadius"                    "45"
+        "HealthBarOffset"               "140"
+
+        // Bounty
+        "BountyXP"                      "0"
+        "BountyGoldMin"                 "60"
+        "BountyGoldMax"                 "60"
+
+        // Movement
+        "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"                 "325"
+
+        // Status
+        "StatusHealth"                  "300"
+        "StatusHealthRegen"             "0.5"
+        "StatusMana"                    "500"
+        "StatusManaRegen"               "0.0"
+        
+        // Vision
+        "VisionDaytimeRange"            "700"
+        "VisionNighttimeRange"          "700"
+
+        // Team
+        "TeamName"                      "DOTA_TEAM_BADGUYS"
+        "CombatClassAttack"             "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"             "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+        "UnitRelationshipClass"         "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        "Creature"
+        {
+            "HPGain"                    "30"
+            "DamageGain"                "2"
+            "ArmorGain"                 "0.2"
+            "MagicResistGain"           "0.1"
+            "MoveSpeedGain"             "1"
+            "BountyGain"                "3"
+            "XPGain"                    "0"
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+
+        "npc_dota_creep_goodguys_ranged_mega"
+    {
+        // General
+        "BaseClass"                     "npc_dota_creature"
+        "Model"                         "models/creeps/lane_creeps/creep_radiant_ranged/radiant_ranged_mega.vmdl"
+        "SoundSet"                      "Creep_Ranged"
+        "Level"                         "1"
+        "ModelScale"                    "1.2"
+
+        // Abilities
+        "Ability1"                      ""
+        "Ability2"                      ""
+        "Ability3"                      ""
+        "Ability4"                      ""
+
+        // Armor
+        "ArmorPhysical"                 "1"
+
+        // Attack
+        "AttackCapabilities"            "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageMin"               "52"
+        "AttackDamageMax"               "66"
+        "AttackRate"                    "1.5"
+        "AttackAnimationPoint"          "0.5"
+        "AttackAcquisitionRange"        "800"
+        "AttackRange"                   "500"
+        "ProjectileModel"               "particles/base_attacks/ranged_goodguy.vpcf"
+        "ProjectileSpeed"               "900"
+
+        // Bounds
+        "RingRadius"                    "45"
+        "HealthBarOffset"               "140"
+
+        // Bounty
+        "BountyXP"                      "0"
+        "BountyGoldMin"                 "60"
+        "BountyGoldMax"                 "60"
+
+        // Movement
+        "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"                 "325"
+
+        // Status
+        "StatusHealth"                  "300"
+        "StatusHealthRegen"             "0.5"
+        "StatusMana"                    "500"
+        "StatusManaRegen"               "0.0"
+        
+        // Vision
+        "VisionDaytimeRange"            "700"
+        "VisionNighttimeRange"          "700"
+
+        // Team
+        "TeamName"                      "DOTA_TEAM_GOODGUYS"
+        "CombatClassAttack"             "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"             "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+        "UnitRelationshipClass"         "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        "Creature"
+        {
+            "HPGain"                    "30"
+            "DamageGain"                "2"
+            "ArmorGain"                 "0.2"
+            "MagicResistGain"           "0.1"
+            "MoveSpeedGain"             "1"
+            "BountyGain"                "3"
+            "XPGain"                    "0"
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+
+        "npc_dota_creep_badguys_ranged_mega"
+    {
+        // General
+        "BaseClass"                     "npc_dota_creature"
+        "Model"                         "models/creeps/lane_creeps/creep_bad_ranged/lane_dire_ranged_mega.vmdl"
+        "SoundSet"                      "Creep_Ranged"
+        "Level"                         "1"
+        "ModelScale"                    "1.2"
+        // Abilities
+        "Ability1"                      ""
+        "Ability2"                      ""
+        "Ability3"                      ""
+        "Ability4"                      ""
+
+        // Armor
+        "ArmorPhysical"                 "1"
+
+        // Attack
+        "AttackCapabilities"            "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageMin"               "52"
+        "AttackDamageMax"               "66"
         "AttackRate"                    "1.5"
         "AttackAnimationPoint"          "0.5"
         "AttackAcquisitionRange"        "800"
