@@ -15,12 +15,18 @@ function spawn_melee:OnSpellStart()
         self.create_unit_modifier:MoveUnitToPosition(testunit, self.spawn_pos)
     end)
 
-
-    self.create_unit_modifier:CastWithSelection(self:GetCaster(), self:GetName())
+    self.create_unit_modifier:CastWithSelection(self:GetCaster(), self:GetAbilityIndex())
 
 end
 
+function spawn_melee:GetAbilityTag()
+    return "spawner"
+end
+
 function spawn_melee:SetUpUnitData()
+
+    
+
     self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
     self.spawn_pos = self:GetCaster():FindModifierByName("create_unit_modifier").spawn_pos
     self.enemy_spawn = self:GetCaster():FindModifierByName("create_unit_modifier").enemy_spawn

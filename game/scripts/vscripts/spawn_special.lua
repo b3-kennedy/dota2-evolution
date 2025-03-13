@@ -18,8 +18,11 @@ function spawn_special:OnSpellStart()
     end)
 
     
+    self.create_unit_modifier:CastWithSelection(self:GetCaster(), self:GetAbilityIndex())
+end
 
-    self.create_unit_modifier:CastWithSelection(self:GetCaster(), self:GetName())
+function spawn_special:GetAbilityTag()
+    return "spawner"
 end
 
 function spawn_special:SetUpUnitData()
@@ -47,3 +50,4 @@ function spawn_special:SpawnLevelOne()
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
 end
+

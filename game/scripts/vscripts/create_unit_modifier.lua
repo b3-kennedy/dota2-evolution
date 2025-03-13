@@ -49,15 +49,15 @@ function create_unit_modifier:CreateUnit(data)
     
 end
 
-function create_unit_modifier:CastWithSelection(caster, ability_name)
+function create_unit_modifier:CastWithSelection(caster, ability_index)
     local count = PlayerResource:GetSelectedEntityCount(caster:GetPlayerOwnerID())
     local selection = PlayerResource:GetSelectedEntities(caster:GetPlayerOwnerID())
     local valid_unit_count = 0
     for i=0, count-1 do
         local unit = EntIndexToHScript(selection[tostring(i)])
         local ent_index = selection[tostring(i)]
-        local ability = unit:FindAbilityByName(ability_name)
-        if ability then
+        local ability = unit:GetAbilityByIndex(ability_index)
+        if ability and ability:GetAbilityTag() == "spawner" then
             if ability:GetLevel() == 1 then
                 ability:SpawnLevelOne()
             elseif ability:GetLevel() == 2 then

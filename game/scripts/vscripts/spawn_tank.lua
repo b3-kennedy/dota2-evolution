@@ -18,9 +18,12 @@ function spawn_tank:OnSpellStart()
     end)
 
     self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
+    self.create_unit_modifier:CastWithSelection(self:GetCaster(), self:GetAbilityIndex())
 
-    self.create_unit_modifier:CastWithSelection(self:GetCaster(), self:GetName())
+end
 
+function spawn_tank:GetAbilityTag()
+    return "spawner"
 end
 
 function spawn_tank:SetUpUnitData()

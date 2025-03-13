@@ -17,9 +17,12 @@ function spawn_heal:OnSpellStart()
         self.create_unit_modifier:MoveUnitToPosition(testunit, self.spawn_pos)
     end)
 
+    self.create_unit_modifier:CastWithSelection(self:GetCaster(), self:GetAbilityIndex())
 
-    self.create_unit_modifier:CastWithSelection(self:GetCaster(), self:GetName())
+end
 
+function spawn_heal:GetAbilityTag()
+    return "spawner"
 end
 
 function spawn_heal:SetUpUnitData()

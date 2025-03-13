@@ -3,6 +3,10 @@ special_ability = class({})
 
 LinkLuaModifier("special_ability_modifier_thinker", LUA_MODIFIER_MOTION_NONE)
 
+function special_ability:GetAbilityTag()
+    return "special"
+end
+
 function special_ability:OnSpellStart()
 
 

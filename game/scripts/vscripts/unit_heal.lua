@@ -6,6 +6,10 @@ function unit_heal:GetIntrinsicModifierName()
     return "unit_heal_modifier"
 end
 
+function unit_heal:GetAbilityTag()
+    return "unit_heal"
+end
+
 function unit_heal:OnSpellStart()
     self.target = self:GetCaster():FindModifierByName("unit_heal_modifier").lowest_health_ally
 

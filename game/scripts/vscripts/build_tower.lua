@@ -19,3 +19,7 @@ function build_tower:OnSpellStart()
         CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(self:GetCaster():GetPlayerOwnerID()), "display_custom_error", { message = "Not Enough Gold" })
     end
 end
+
+function build_tower:GetAbilityTag()
+    return "builder"
+end

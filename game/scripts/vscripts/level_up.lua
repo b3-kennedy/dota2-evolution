@@ -27,3 +27,7 @@ function level_up:OnSpellStart()
         self:SetActivated(false)
     end
 end
+
+function level_up:GetAbilityTag()
+    return "level"
+end
