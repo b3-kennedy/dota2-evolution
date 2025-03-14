@@ -41,12 +41,18 @@ function Precache(context)
 	PrecacheModel("models/items/beastmaster/hawk/fotw_eagle/fotw_eagle.vmdl", context)
 	PrecacheModel("models/creeps/lane_creeps/creep_radiant_melee/radiant_melee_mega.vmdl", context)
 	PrecacheModel("models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee_mega.vmdl", context)
+	PrecacheModel("models/creeps/neutral_creeps/n_creep_black_dragon/n_creep_black_dragon.vmdl", context)
+	PrecacheModel("models/props_structures/radiant_ancient001.vmdl", context)
+	PrecacheModel("models/props_structures/bad_ancient002.vmdl",context)
 	PrecacheResource("particle", "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", context)
 	PrecacheResource("particle", "particles/radiant_fx2/good_ancient001_ambient.vpcf", context)
 	PrecacheResource("particle", "particles/creeps/lane_creeps/creep_radiant_hulk_swipe_right.vpcf", context)
 	PrecacheResource("particle", "particles/creeps/lane_creeps/creep_radiant_hulk_swipe_left.vpcf", context)
 	PrecacheResource("particle", "particles/creeps/lane_creeps/creep_dire_hulk_swipe_right.vpcf", context)
 	PrecacheResource("particle", "particles/creeps/lane_creeps/creep_dire_hulk_swipe_right.vpcf", context)
+	PrecacheResource("particle", "particles/neutral_fx/black_dragon_fireball.vpcf", context)
+	PrecacheResource("particle", "particles/units/heroes/hero_dragon_knight/dragon_knight_shard_fireball.vpcf", context)
+	PrecacheResource("particle", "particles/units/heroes/hero_viper/viper_nethertoxin.vpcf", context)
 
 	
 

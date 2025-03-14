@@ -63,3 +63,14 @@ function spawn_ranged:SpawnLevelTwo()
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
 end
+
+function spawn_ranged:SpawnLevelThree()
+    self:SetUpUnitData()
+    if self.team == DOTA_TEAM_GOODGUYS then
+        self.unit_data.name = "npc_dota_black_dragon_small"
+    else
+        self.unit_data.name = "npc_dota_black_dragon_small"
+    end
+
+    self.create_unit_modifier:CreateUnit(self.unit_data)
+end

@@ -52,16 +52,18 @@ end
 function create_unit_modifier:CastWithSelection(caster, ability_index)
     local count = PlayerResource:GetSelectedEntityCount(caster:GetPlayerOwnerID())
     local selection = PlayerResource:GetSelectedEntities(caster:GetPlayerOwnerID())
-    local valid_unit_count = 0
     for i=0, count-1 do
         local unit = EntIndexToHScript(selection[tostring(i)])
-        local ent_index = selection[tostring(i)]
         local ability = unit:GetAbilityByIndex(ability_index)
         if ability and ability:GetAbilityTag() == "spawner" then
             if ability:GetLevel() == 1 then
                 ability:SpawnLevelOne()
             elseif ability:GetLevel() == 2 then
                 ability:SpawnLevelTwo()
+            elseif ability:GetLevel() == 3 then
+                ability:SpawnLevelThree()
+            elseif ability:GetLevel() == 4 then
+                ability:SpawnLevelFour()
             end
         end
     end
@@ -132,9 +134,16 @@ function create_unit_modifier:ManageQueue()
 end
 
 function create_unit_modifier:MoveUnitToPosition(unit, position)
+    local order = DOTA_UNIT_ORDER_ATTACK_MOVE
+    if unit:GetName() ~= "npc_dota_heal_unit" then
+        order = DOTA_UNIT_ORDER_ATTACK_MOVE
+    else
+        order = DOTA_UNIT_ORDER_MOVE_TO_POSITION
+    end
+
     ExecuteOrderFromTable({
         UnitIndex = unit:entindex(),    -- The unit that should move
-        OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE, -- The order type (move to position)
+        OrderType = order, -- The order type (move to position)
         Position = position,            -- The target position (Vector)
         Queue = false,                  -- Whether to queue this order after current orders
     })

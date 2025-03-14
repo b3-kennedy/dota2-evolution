@@ -287,4 +287,78 @@
             "XPGain"                    "0"
         }
     }
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+    "npc_dota_black_dragon_small"
+    {
+        // General
+        "BaseClass"                     "npc_dota_creature"
+        "Model"                         "models/creeps/neutral_creeps/n_creep_black_dragon/n_creep_black_dragon.vmdl"
+        "SoundSet"                      "n_creep_Ranged"
+        "Level"                         "1"
+        "ModelScale"                    "0.9"
+        
+        // Abilities
+        "Ability1"                      "fireball"
+        "Ability2"                      ""
+        "Ability3"                      ""
+        "Ability4"                      ""
+
+        // Armor
+        "ArmorPhysical"                 "3"
+
+        // Attack
+        "AttackCapabilities"            "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageMin"               "104"
+        "AttackDamageMax"               "115"
+        "AttackRate"                    "1.5"
+        "AttackAnimationPoint"          "0.3"
+        "AttackAcquisitionRange"        "800"
+        "AttackRange"                   "450"
+        "ProjectileModel"               "particles/neutral_fx/black_dragon_attack.vpcf"
+        "ProjectileSpeed"               "900"
+
+        // Bounds
+        "RingRadius"                    "50"
+        "HealthBarOffset"               "170"
+
+        // Bounty
+        "BountyXP"                      "88"
+        "BountyGoldMin"                 "40"
+        "BountyGoldMax"                 "48"
+
+        // Movement
+        "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"                 "300"
+
+        // Status
+        "StatusHealth"                  "800"
+        "StatusHealthRegen"             "1"
+        "StatusMana"                    "400"
+        "StatusManaRegen"               "0.5"
+        
+        // Vision
+        "VisionDaytimeRange"            "800"
+        "VisionNighttimeRange"          "800"
+
+        // Team
+        "TeamName"                      "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack"             "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+        "CombatClassDefend"             "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+        "UnitRelationshipClass"         "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        "Creature"
+        {
+            "HPGain"                    "75"
+            "DamageGain"                "4"
+            "ArmorGain"                 "0.5"
+            "MagicResistGain"           "0.1"
+            "MoveSpeedGain"             "0"
+            "BountyGain"                "5"
+            "XPGain"                    "15"
+        }
+    }
+
 }

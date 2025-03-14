@@ -48,10 +48,17 @@ function unit_heal_modifier:OnIntervalThink()
             Queue = false  -- Whether to queue this action (false means execute immediately)
         })
     else
+
+        if(self:GetParent():GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
+            pos = PLAYER_SPAWN_RADIANT
+        else
+            pos = PLAYER_SPAWN_DIRE
+        end
+
         ExecuteOrderFromTable({
             UnitIndex = self:GetParent():entindex(),    -- The unit that should move
             OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION, -- The order type (move to position)
-            Position = PLAYER_SPAWN_DIRE,            -- The target position (Vector)
+            Position = pos,            -- The target position (Vector)
             Queue = false,                  -- Whether to queue this order after current orders
         })
     end

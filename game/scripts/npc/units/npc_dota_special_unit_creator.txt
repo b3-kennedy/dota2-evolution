@@ -17,6 +17,7 @@
         "Ability2"					"spawn_scout_hawk"			// Ability 2
         "Ability3"					"spawn_heal"			// Ability 3
         "Ability4"					"generic_hidden"
+        "Ability5"                  "level_up"
         // Armor
         //----------------------------------------------------------------
         "ArmorPhysical"				"2"			// Physical protection.
