@@ -6,11 +6,11 @@
         "BaseClass"                     "npc_dota_creep_lane"
         "Model"                         "models/creeps/lane_creeps/creep_good_siege/creep_good_siege.vmdl"
         "SoundSet"                      "Creep_Ranged"
-        "Level"                         "1"
+        "Level"                         "4"
         "ModelScale"                    "1.0"
 
         // Abilities
-        "Ability1"                      ""       // You could define your own ability here
+        "Ability1"                      "siege"       // You could define your own ability here
         "Ability2"                      ""
         "Ability3"                      ""
         "Ability4"                      ""
@@ -81,7 +81,7 @@
         "ModelScale"                    "1.0"
 
         // Abilities
-        "Ability1"                      ""       // You could define your own ability here
+        "Ability1"                      "siege"       // You could define your own ability here
         "Ability2"                      ""
         "Ability3"                      ""
         "Ability4"                      ""

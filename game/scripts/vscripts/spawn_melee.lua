@@ -24,9 +24,6 @@ function spawn_melee:GetAbilityTag()
 end
 
 function spawn_melee:SetUpUnitData()
-
-    
-
     self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
     self.spawn_pos = self:GetCaster():FindModifierByName("create_unit_modifier").spawn_pos
     self.enemy_spawn = self:GetCaster():FindModifierByName("create_unit_modifier").enemy_spawn

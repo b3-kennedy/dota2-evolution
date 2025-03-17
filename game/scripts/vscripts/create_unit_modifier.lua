@@ -74,7 +74,6 @@ function create_unit_modifier:Spawn(data)
     local spawn_pos = ability.spawn_pos
 
     local unit = CreateUnitByName(data.name, spawn_pos, true, self.player, self.player, self.player:GetTeamNumber())
-
     if data.is_controllable then
         unit:SetOwner(self.player)
         unit:SetControllableByPlayer(self.player:GetPlayerOwnerID(), true)
@@ -86,7 +85,7 @@ function create_unit_modifier:Spawn(data)
     self.last_spawn_time = GameRules:GetGameTime()
 
     if data.ability1 ~= nil then
-        unit:FindAbilityByName(data.ability1):SetLevel(4)
+        unit:FindAbilityByName(data.ability1):SetLevel(ability:GetLevel())
     end
 
     self.queue:dequeue()

@@ -7,11 +7,11 @@ LinkLuaModifier("spawner_modifier", LUA_MODIFIER_MOTION_NONE)
 
 function spawn_siege:OnSpellStart()
 
-
     self.spawn_pos = self:GetCaster():FindModifierByName("create_unit_modifier").spawn_pos
     self.enemy_spawn = self:GetCaster():FindModifierByName("create_unit_modifier").enemy_spawn
     
     local testunit = CreateUnitByName("npc_dota_creep_badguys_siege", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    testunit:FindAbilityByName("siege"):SetLevel(4)
     self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
     Timers:CreateTimer(0.1, function()
         self.create_unit_modifier:MoveUnitToPosition(testunit, self.spawn_pos)
@@ -35,6 +35,7 @@ function spawn_siege:SetUpUnitData()
         name = "npc_dota_creep_goodguys_siege", 
         spawn_time = 2, 
         ability = "spawn_siege",
+        ability1 = "siege",
         gold_cost = self:GetManaCost(self:GetLevel()),
     }
 end

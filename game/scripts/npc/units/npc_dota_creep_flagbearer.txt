@@ -141,4 +141,147 @@
             "XPGain"                    "0"
         }
     }
+
+
+    "npc_dota_creep_goodguys_flagbearer_mega"
+    {
+        // General
+        "BaseClass"                     "npc_dota_creep_lane"
+        "Model"                         "models/creeps/lane_creeps/creep_radiant_melee/radiant_melee_mega_crystal.vmdl"
+        "SoundSet"                      "Creep_Melee"
+        "Level"                         "1"
+        "ModelScale"                    "1.2"
+
+        // Abilities
+        "Ability1"                      "special_creep_aura"
+        "Ability2"                      ""
+        "Ability3"                      ""
+        "Ability4"                      ""
+
+        // Armor
+        "ArmorPhysical"                 "1"
+
+        // Attack
+        "AttackCapabilities"            "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"               "46"
+        "AttackDamageMax"               "52"
+        "AttackRate"                    "1.5"
+        "AttackAnimationPoint"          "0.467"
+        "AttackAcquisitionRange"        "600"
+        "AttackRange"                   "150"
+        "ProjectileModel"               ""
+        "ProjectileSpeed"               "0"
+
+        // Bounds
+        "RingRadius"                    "45"
+        "HealthBarOffset"               "140"
+
+        // Bounty
+        "BountyXP"                      "0"
+        "BountyGoldMin"                 "150"
+        "BountyGoldMax"                 "150"
+
+        // Movement
+        "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"                 "325"
+
+        // Status
+        "StatusHealth"                  "550"
+        "StatusHealthRegen"             "2.0"
+        "StatusMana"                    "0"
+        "StatusManaRegen"               "0.0"
+        
+        // Vision
+        "VisionDaytimeRange"            "700"
+        "VisionNighttimeRange"          "700"
+
+        // Team
+        "TeamName"                      "DOTA_TEAM_GOODGUYS"
+        "CombatClassAttack"             "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+        "CombatClassDefend"             "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+        "UnitRelationshipClass"         "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        "Creature"
+        {
+            "HPGain"                    "40"
+            "DamageGain"                "3"
+            "ArmorGain"                 "0.2"
+            "MagicResistGain"           "0.1"
+            "MoveSpeedGain"             "1"
+            "BountyGain"                "4"
+            "XPGain"                    "0"
+        }
+    }
+    "npc_dota_creep_badguys_flagbearer_mega"
+    {
+        // General
+        "BaseClass"                     "npc_dota_creep_lane"
+        "Model"                         "models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee_mega_crystal.vmdl"
+        "SoundSet"                      "Creep_Melee"
+        "Level"                         "1"
+        "ModelScale"                    "1.2"
+
+        // Abilities
+        "Ability1"                      "special_creep_aura"
+        "Ability2"                      ""
+        "Ability3"                      ""
+        "Ability4"                      ""
+
+        // Armor
+        "ArmorPhysical"                 "2"
+
+        // Attack
+        "AttackCapabilities"            "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"               "46"
+        "AttackDamageMax"               "52"
+        "AttackRate"                    "1.5"
+        "AttackAnimationPoint"          "0.467"
+        "AttackAcquisitionRange"        "600"
+        "AttackRange"                   "150"
+        "ProjectileModel"               ""
+        "ProjectileSpeed"               "0"
+
+        // Bounds
+        "RingRadius"                    "45"
+        "HealthBarOffset"               "140"
+
+        // Bounty
+        "BountyXP"                      "45"
+        "BountyGoldMin"                 "150"
+        "BountyGoldMax"                 "150"
+
+        // Movement
+        "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"                 "325"
+
+        // Status
+        "StatusHealth"                  "550"
+        "StatusHealthRegen"             "2.0"
+        "StatusMana"                    "0"
+        "StatusManaRegen"               "0.0"
+        
+        // Vision
+        "VisionDaytimeRange"            "700"
+        "VisionNighttimeRange"          "700"
+
+        // Team
+        "TeamName"                      "DOTA_TEAM_BADGUYS"
+        "CombatClassAttack"             "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+        "CombatClassDefend"             "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+        "UnitRelationshipClass"         "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        "Creature"
+        {
+            "HPGain"                    "40"
+            "DamageGain"                "3"
+            "ArmorGain"                 "0.2"
+            "MagicResistGain"           "0.1"
+            "MoveSpeedGain"             "1"
+            "BountyGain"                "4"
+            "XPGain"                    "0"
+        }
+    }
+    
 }
