@@ -50,3 +50,14 @@ function spawn_siege:SpawnLevelOne()
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
 end
+
+function spawn_siege:SpawnLevelTwo()
+    self:SetUpUnitData()
+    if self.team == DOTA_TEAM_GOODGUYS then
+        self.unit_data.name = "npc_dota_creep_goodguys_siege_mega"
+    else
+        self.unit_data.name = "npc_dota_creep_badguys_siege_mega"
+    end
+
+    self.create_unit_modifier:CreateUnit(self.unit_data)
+end
