@@ -10,6 +10,7 @@
         "GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
         "Level"						"4"  
         "ModelScale" 				"1.0"
+        "IsBuilding"                "1"
 
         // Abilities
         //----------------------------------------------------------------
