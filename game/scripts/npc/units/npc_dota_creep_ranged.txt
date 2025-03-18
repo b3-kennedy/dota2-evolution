@@ -71,7 +71,6 @@
         }
     }
 
-////////////////////////////////////////////////////////////////////////////////////////////////
 
     "npc_dota_creep_badguys_ranged"
     {
@@ -143,9 +142,8 @@
         }
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////
-
-        "npc_dota_creep_goodguys_ranged_mega"
+ 
+    "npc_dota_creep_goodguys_ranged_mega"
     {
         // General
         "BaseClass"                     "npc_dota_creature"
@@ -216,9 +214,9 @@
         }
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////
+ 
 
-        "npc_dota_creep_badguys_ranged_mega"
+    "npc_dota_creep_badguys_ranged_mega"
     {
         // General
         "BaseClass"                     "npc_dota_creature"
@@ -252,8 +250,8 @@
 
         // Bounty
         "BountyXP"                      "0"
-        "BountyGoldMin"                 "60"
-        "BountyGoldMax"                 "60"
+        "BountyGoldMin"                 "120"
+        "BountyGoldMax"                 "120"
 
         // Movement
         "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
@@ -288,7 +286,6 @@
         }
     }
 
-/////////////////////////////////////////////////////////////////////////////////////////
 
     "npc_dota_black_dragon_small"
     {
@@ -325,8 +322,8 @@
 
         // Bounty
         "BountyXP"                      "88"
-        "BountyGoldMin"                 "40"
-        "BountyGoldMax"                 "48"
+        "BountyGoldMin"                 "170"
+        "BountyGoldMax"                 "170"
 
         // Movement
         "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"

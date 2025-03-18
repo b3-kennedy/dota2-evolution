@@ -28,18 +28,6 @@ function create_unit_modifier:CreateUnit(data)
         --play buy sound
         EmitSoundOnClient("Hero_Furion.ForceOfNature", PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()))
     else
-        -- Notifications:Bottom(PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()), {
-        --     text = "Not Enough Gold", 
-        --     duration = 1, 
-        --     style = {
-        --         color = "white",  -- Set text color to white for contrast
-        --         ["font-size"] = "15px", 
-        --         ["background-color"] = "rgba(255, 0, 0, 0.7)",  -- Red background with 70% opacity (translucent)
-        --         padding_left = "20px",  -- Add padding to the left
-        --         padding_right = "20px",  -- Add padding to the right
-        --     }
-        -- })
-
         CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(self:GetParent():GetPlayerOwnerID()), "display_custom_error", { message = "Not Enough Gold" })
     end
     
@@ -72,13 +60,18 @@ end
 function create_unit_modifier:Spawn(data)
     local ability = self:GetParent():FindAbilityByName(data.ability)
     local spawn_pos = ability.spawn_pos
-
-    local unit = CreateUnitByName(data.name, spawn_pos, true, self.player, self.player, self.player:GetTeamNumber())
+    local unit = CreateUnitByName(
+        data.name, 
+        spawn_pos, 
+        true, 
+        self.player, 
+        self.player, 
+        self.player:GetTeamNumber()
+    )
     if data.is_controllable then
         unit:SetOwner(self.player)
         unit:SetControllableByPlayer(self.player:GetPlayerOwnerID(), true)
     end
-
     Timers:CreateTimer(0.1, function()
         self:MoveUnitToPosition(unit, ability.enemy_spawn)
     end)

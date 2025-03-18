@@ -235,6 +235,148 @@
         "AttackCapabilities"            "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageMin"               "75"
         "AttackDamageMax"               "100"
+        "AttackRate"                    "1.6"
+        "AttackAnimationPoint"          "0.5"
+        "AttackAcquisitionRange"        "600"
+        "AttackRange"                   "600" // Siege creeps are long-range attackers
+        "ProjectileModel"               ""
+        "ProjectileSpeed"               "1200" // Fast projectile for siege units
+
+        // Bounds
+        "RingRadius"                    "45"
+        "HealthBarOffset"               "250" // Position health bar higher to make it more visible
+
+        // Bounty
+        "BountyXP"                      "60"
+        "BountyGoldMin"                 "150"
+        "BountyGoldMax"                 "150"
+
+        // Movement
+        "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"                 "250"  // Siege creeps are usually slower
+
+        // Status
+        "StatusHealth"                  "1200" // Higher health for siege units
+        "StatusHealthRegen"             "4.0"  // Higher regen as siege creeps are more resilient
+        "StatusMana"                    "0"
+        "StatusManaRegen"               "0.0"
+        
+        // Vision
+        "VisionDaytimeRange"            "800"  // Siege units need greater vision to spot targets
+        "VisionNighttimeRange"          "800"
+
+        // Team
+        "TeamName"                      "DOTA_TEAM_BADGUYS"
+        "CombatClassAttack"             "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+        "CombatClassDefend"             "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+        "UnitRelationshipClass"         "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        "Creature"
+        {
+            "HPGain"                    "60"
+            "DamageGain"                "5"
+            "ArmorGain"                 "0.3"
+            "MagicResistGain"           "0.1"
+            "MoveSpeedGain"             "0.5"
+            "BountyGain"                "6"
+            "XPGain"                    "0"
+        }
+    }
+
+    "npc_dota_creep_goodguys_siege_three"
+    {
+        // General
+        "BaseClass"                     "npc_dota_creep_lane"
+        "Model"                         "models/creeps/lane_creeps/creep_bird_radiant/creep_bird_radiant_siege.vmdl"
+        "SoundSet"                      "Creep_Ranged"
+        "Level"                         "4"
+        "ModelScale"                    "1.0"
+
+        // Abilities
+        "Ability1"                      "siege"       // You could define your own ability here
+        "Ability2"                      ""
+        "Ability3"                      ""
+        "Ability4"                      ""
+
+        // Armor
+        "ArmorPhysical"                 "2"  // Siege creeps are usually more durable
+
+        // Attack
+        "AttackCapabilities"            "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageMin"               "75"
+        "AttackDamageMax"               "100"
+        "AttackRate"                    "1.6"
+        "AttackAnimationPoint"          "0.5"
+        "AttackAcquisitionRange"        "600"
+        "AttackRange"                   "600" // Siege creeps are long-range attackers
+        "ProjectileModel"               ""
+        "ProjectileSpeed"               "1200" // Fast projectile for siege units
+
+        // Bounds
+        "RingRadius"                    "45"
+        "HealthBarOffset"               "250" // Position health bar higher to make it more visible
+
+        // Bounty
+        "BountyXP"                      "0"
+        "BountyGoldMin"                 "100"
+        "BountyGoldMax"                 "100"
+
+        // Movement
+        "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"                 "250"  // Siege creeps are usually slower
+
+        // Status
+        "StatusHealth"                  "1200" // Higher health for siege units
+        "StatusHealthRegen"             "4.0"  // Higher regen as siege creeps are more resilient
+        "StatusMana"                    "0"
+        "StatusManaRegen"               "0.0"
+        
+        // Vision
+        "VisionDaytimeRange"            "800"  // Siege units need greater vision to spot targets
+        "VisionNighttimeRange"          "800"
+
+        // Team
+        "TeamName"                      "DOTA_TEAM_GOODGUYS"
+        "CombatClassAttack"             "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+        "CombatClassDefend"             "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+        "UnitRelationshipClass"         "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        "Creature"
+        {
+            "HPGain"                    "60"
+            "DamageGain"                "5"
+            "ArmorGain"                 "0.3"
+            "MagicResistGain"           "0.1"
+            "MoveSpeedGain"             "0.5"
+            "BountyGain"                "6"
+            "XPGain"                    "0"
+        }
+    }
+
+    "npc_dota_creep_badguys_siege_three"
+    {
+        // General
+        "BaseClass"                     "npc_dota_creep_lane"
+        "Model"                         "models/creeps/lane_creeps/creep_bird_dire/creep_bird_dire_siege.vmdl"
+        "SoundSet"                      "Creep_Ranged"
+        "Level"                         "1"
+        "ModelScale"                    "1.0"
+
+        // Abilities
+        "Ability1"                      "siege"       // You could define your own ability here
+        "Ability2"                      ""
+        "Ability3"                      ""
+        "Ability4"                      ""
+
+        // Armor
+        "ArmorPhysical"                 "2"  // Siege creeps are usually more durable
+
+        // Attack
+        "AttackCapabilities"            "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageMin"               "75"
+        "AttackDamageMax"               "100"
         "AttackRate"                    "1.8"
         "AttackAnimationPoint"          "0.5"
         "AttackAcquisitionRange"        "600"

@@ -9,12 +9,8 @@ LinkLuaModifier("spawner_modifier", LUA_MODIFIER_MOTION_NONE)
 function spawn_melee:OnSpellStart()
     self.spawn_pos = self:GetCaster():FindModifierByName("create_unit_modifier").spawn_pos
     self.enemy_spawn = self:GetCaster():FindModifierByName("create_unit_modifier").enemy_spawn
-    local testunit = CreateUnitByName("npc_dota_creep_bad_melee", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
-    self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
-    Timers:CreateTimer(0.1, function()
-        self.create_unit_modifier:MoveUnitToPosition(testunit, self.spawn_pos)
-    end)
 
+    self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
     self.create_unit_modifier:CastWithSelection(self:GetCaster(), self:GetAbilityIndex())
 
 end
@@ -47,6 +43,8 @@ function spawn_melee:SpawnLevelOne()
         self.unit_data.name = "npc_dota_creep_bad_melee" 
     end
     self.create_unit_modifier:CreateUnit(self.unit_data)
+
+    local testunit = CreateUnitByName("npc_dota_creep_bad_melee", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
         
 end
 
@@ -58,6 +56,22 @@ function spawn_melee:SpawnLevelTwo()
         self.unit_data.name = "npc_dota_creep_bad_melee_mega" 
     end
 
+    local testunit = CreateUnitByName("npc_dota_creep_bad_melee_mega", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+
     self.create_unit_modifier:CreateUnit(self.unit_data)
+end
+
+function spawn_melee:SpawnLevelThree()
+    self:SetUpUnitData()
+    self.unit_data.ability1 = "split"
+    if self.team == DOTA_TEAM_GOODGUYS then
+        self.unit_data.name = "npc_dota_creep_mud_golem"
+    else
+        self.unit_data.name = "npc_dota_creep_mud_golem" 
+    end
+    self.create_unit_modifier:CreateUnit(self.unit_data)
+
+    local testunit = CreateUnitByName("npc_dota_creep_mud_golem", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    
 end
 

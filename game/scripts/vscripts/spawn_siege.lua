@@ -53,10 +53,23 @@ end
 
 function spawn_siege:SpawnLevelTwo()
     self:SetUpUnitData()
+    self.unit_data.gold_cost = 200
     if self.team == DOTA_TEAM_GOODGUYS then
         self.unit_data.name = "npc_dota_creep_goodguys_siege_mega"
     else
         self.unit_data.name = "npc_dota_creep_badguys_siege_mega"
+    end
+
+    self.create_unit_modifier:CreateUnit(self.unit_data)
+end
+
+function spawn_siege:SpawnLevelThree()
+    self:SetUpUnitData()
+    self.unit_data.gold_cost = 400
+    if self.team == DOTA_TEAM_GOODGUYS then
+        self.unit_data.name = "npc_dota_creep_goodguys_siege_three"
+    else
+        self.unit_data.name = "npc_dota_creep_badguys_siege_three"
     end
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
