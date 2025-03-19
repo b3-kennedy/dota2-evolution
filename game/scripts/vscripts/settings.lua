@@ -1,7 +1,7 @@
 -- In this file you can set up all the properties and settings for your game mode.
 USE_DEBUG = false                  -- Should we print statements on almost every function/event call? For debugging.
 
-ENABLE_HERO_RESPAWN = true         -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
+ENABLE_HERO_RESPAWN = false         -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false        -- Should the shops contain all items?
 ALLOW_SAME_HERO_SELECTION = false  -- Should we let people select the same hero as each other
 LOCK_TEAMS = false                 -- Should we Lock (true) or unlock (false) team assignemnt. If team assignment is locked players cannot change teams.
@@ -74,7 +74,7 @@ for i = 2, MAX_LEVEL do
 	XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i - 1] + i * 100
 end
 
-ENABLE_FIRST_BLOOD = true          -- Should we enable first blood for the first kill in this game?
+ENABLE_FIRST_BLOOD = false          -- Should we enable first blood for the first kill in this game?
 HIDE_KILL_BANNERS = false          -- Should we hide the kill banners that show when a player is killed?
 LOSE_GOLD_ON_DEATH = true          -- Should we have players lose the normal amount of dota gold on death?
 SHOW_ONLY_PLAYER_INVENTORY = false -- Should we allow players to only see their own inventory even when selecting other units?

@@ -1,7 +1,7 @@
 -- This is the entry-point to your game mode and should be used primarily to precache models/particles/sounds/etc
 
 -- Creating a global gamemode class variable;
-if barebones == nil then
+if barebones == context then
 	_G.barebones = class({})
 else
 	DebugPrint("[BAREBONES] barebones class name is already in use, change the name if this is the first time you launch the game!")
@@ -61,7 +61,12 @@ function Precache(context)
 	PrecacheResource("particle", "particles/neutral_fx/black_dragon_fireball.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_dragon_knight/dragon_knight_shard_fireball.vpcf", context)
 	PrecacheResource("particle", "particles/units/heroes/hero_viper/viper_nethertoxin.vpcf", context)
-
+	PrecacheUnitByNameSync("npc_dota_hero_juggernaut", context)
+	PrecacheUnitByNameSync("npc_dota_hero_sven", context)
+	PrecacheUnitByNameSync("npc_dota_hero_drow_ranger", context)
+	PrecacheUnitByNameSync("npc_dota_hero_jakiro", context)
+	PrecacheUnitByNameSync("npc_dota_hero_furion", context)
+	PrecacheUnitByNameSync("npc_dota_hero_tidehunter", context)
 	
 
 	-- Models can also be precached by folder or individually

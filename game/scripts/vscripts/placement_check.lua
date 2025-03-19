@@ -25,7 +25,7 @@ end
 function placement_check:SendPlacementError(caster, msg)
     CustomGameEventManager:Send_ServerToPlayer(
         PlayerResource:GetPlayer(caster:GetPlayerOwnerID()), 
-        "display_custom_error", 
+        "display_custom_error",
         { message = msg }
     )
 end

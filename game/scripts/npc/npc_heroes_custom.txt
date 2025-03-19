@@ -126,4 +126,68 @@
 		"VisionDaytimeRange"    	"1800"                  // Range of vision at night time.
 		"VisionNighttimeRange"    	"1800"                  // Range of vision at night time.
 	}
+
+	"npc_dota_hero_juggernaut_override"
+	{
+		"override_hero"                          "npc_dota_hero_juggernaut"
+
+		"AbilityLayout"                          "6"
+		"AbilityTalentStart"                     "10"
+
+		"Ability1"        	"juggernaut_blade_dance"
+		"Ability2"			"generic_hidden"
+		"Ability3"			"generic_hidden" 
+		"Ability4"        	"generic_hidden"
+		"Ability5"			"generic_hidden"
+		"Ability6"			"generic_hidden"
+		"Ability7"			"generic_hidden"
+		"Ability8"        	"generic_hidden"
+		"Ability9"        	"generic_hidden"
+		"Ability10"         "generic_hidden"
+		"Ability11"         "generic_hidden"
+		"Ability12"         "generic_hidden"
+		"Ability13"         "generic_hidden"
+		"Ability14"         "generic_hidden"
+		"Ability15"         "generic_hidden"
+		"Ability16"         "generic_hidden"
+		"Ability17"         "generic_hidden"
+		"Ability18"         "generic_hidden"
+		"Ability19"         "generic_hidden"
+		"Ability20"         "generic_hidden"
+		"Ability21"         "generic_hidden"
+		"Ability22"         "generic_hidden"
+		"Ability23"         "generic_hidden"
+		"Ability24"         "generic_hidden"
+
+		"ArmorPhysical"       		"6"                 	// Physical protection.
+		"MagicalResistance"       	"25"                 	// Magical protection (percentage).
+
+		"AttackCapabilities"    	"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"     		"125"                   	// Damage range min.
+		"AttackDamageMax"     		"150"                   	// Damage range max.
+
+		"AttributePrimary"      	"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"   	"0"                   	// Base strength
+		"AttributeStrengthGain"   	"0.1"                   // Strength bonus per level.
+		"AttributeBaseIntelligence" "0"                   	// Base intelligence
+		"AttributeIntelligenceGain" "0.1"                   // Intelligence bonus per level.
+		"AttributeBaseAgility"    	"0"                   	// Base agility
+		"AttributeAgilityGain"    	"0.1"                   // Agility bonus per level.
+
+		"MovementCapabilities"    	"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"       		"325"
+		"MovementTurnRate"      	"1.0"                 	// Turning rate.
+
+		"StatusHealth"        		"550"                 	// Base health.
+		"StatusHealthRegen"     	"1.5"                 	// Base health regeneration
+		"StatusMana"        		"1000"                   // Base mana.
+		"StatusManaRegen"     		"2.0"                 // Base mana regeneration 
+
+        "VisionDaytimeRange"		"850"		// Range of vision during day light.
+        "VisionNighttimeRange"		"800"
+
+		"BountyXP"					"0"		// Experience earn.
+        "BountyGoldMin"				"250"		// Gold earned min.
+        "BountyGoldMax"				"250"		// Gold earned max.
+	}
 }

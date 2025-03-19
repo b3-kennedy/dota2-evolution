@@ -4,6 +4,8 @@ require('queue')
 require('libraries/timers')
 require('libraries/notifications')
 
+LinkLuaModifier("juggernaut_modifier", LUA_MODIFIER_MOTION_NONE)
+
 function create_unit_modifier:IsPurgable()
 	return false
 end
@@ -57,9 +59,11 @@ function create_unit_modifier:CastWithSelection(caster, ability_index)
     end
 end
 
+
 function create_unit_modifier:Spawn(data)
     local ability = self:GetParent():FindAbilityByName(data.ability)
     local spawn_pos = ability.spawn_pos
+
     local unit = CreateUnitByName(
         data.name, 
         spawn_pos, 
@@ -68,13 +72,22 @@ function create_unit_modifier:Spawn(data)
         self.player, 
         self.player:GetTeamNumber()
     )
+
     if data.is_controllable then
         unit:SetOwner(self.player)
         unit:SetControllableByPlayer(self.player:GetPlayerOwnerID(), true)
     end
-    Timers:CreateTimer(0.1, function()
-        self:MoveUnitToPosition(unit, ability.enemy_spawn)
-    end)
+
+    if unit:GetUnitName() ~= "npc_dota_custom_juggernaut" then
+        Timers:CreateTimer(0.1, function()
+            self:MoveUnitToPosition(unit, ability.enemy_spawn)
+        end)
+    else
+        unit:SetOwner(self.player)
+        unit:SetControllableByPlayer(self.player:GetPlayerOwnerID(), true)
+        --unit:AddNewModifier(unit, nil, "juggernaut_modifier", {duration = -1})
+    end
+
     self.last_spawn_time = GameRules:GetGameTime()
 
     if data.ability1 ~= nil then

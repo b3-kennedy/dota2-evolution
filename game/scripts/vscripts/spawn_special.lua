@@ -76,9 +76,9 @@ end
 function spawn_special:SpawnLevelFour()
     self:SetUpUnitData()
     if(self.team == DOTA_TEAM_GOODGUYS) then
-        self.unit_data.name = "npc_dota_creep_ancient_golem"
+        self.unit_data.name = "npc_dota_custom_tidehunter"
     else
-        self.unit_data.name = "npc_dota_creep_ancient_golem"
+        self.unit_data.name = "npc_dota_custom_tidehunter"
     end
 
     self.create_unit_modifier:CreateUnit(self.unit_data)

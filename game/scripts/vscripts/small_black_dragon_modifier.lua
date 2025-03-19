@@ -38,7 +38,7 @@ function small_black_dragon_modifier:OnIntervalThink()
         self.move = true
     end
 
-    if closest_enemy ~= nil and self.ability:IsCooldownReady() and not self.move then
+    if closest_enemy ~= nil and self.ability:IsCooldownReady() and not self.move and not closest_enemy:FindModifierByName("fireball") then
         print(self.ability)
         self.ability:SetTargetPosition(closest_enemy:GetAbsOrigin())
         self:GetParent():CastAbilityOnTarget(closest_enemy, self.ability, self:GetParent():GetPlayerOwnerID())

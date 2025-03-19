@@ -419,4 +419,67 @@
             "XPGain"					"0"
         }
     }
+
+    "npc_dota_custom_sven"	
+    {
+        "BaseClass"					"npc_dota_creep"
+        "Model"						"models/heroes/sven/sven.vmdl"
+        "SoundSet"					"Hero_Sven"
+        "Level"						"1"
+        "ModelScale" 				"1.0"
+        
+        // Abilities
+        "Ability1"					"juggernaut_blade_dance"
+        "Ability2"					""
+        "Ability3"					""
+        "Ability4"					""
+
+        // Armor
+        "ArmorPhysical"				"4"
+
+        // Attack
+        "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"			"80"
+        "AttackDamageMax"			"110"
+        "AttackRate"				"1.2"
+        "AttackAnimationPoint"		"0.33"
+        "AttackAcquisitionRange"	"600"
+        "AttackRange"				"128"
+
+        // Bounds
+        "RingRadius"				"45"
+        "HealthBarOffset"			"170"
+
+        // Bounty
+        "BountyXP"					"100"
+        "BountyGoldMin"				"150"
+        "BountyGoldMax"				"200"
+
+        // Movement
+        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"				"305"
+
+        // Status
+        "StatusHealth"				"800"
+        "StatusHealthRegen"			"2.0"
+        "StatusMana"				"200"
+        "StatusManaRegen"			"0.5"
+
+        // Vision
+        "VisionDaytimeRange"		"800"
+        "VisionNighttimeRange"		"800"
+
+        "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+        "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        "Creature"
+        {
+            "HPGain"                "50"
+            "DamageGain"            "2"
+            "ArmorGain"             "0.2"
+            "MoveSpeedGain"         "0"
+        }
+    }
 }
+

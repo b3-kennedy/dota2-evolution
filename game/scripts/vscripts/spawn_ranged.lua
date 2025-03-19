@@ -74,3 +74,15 @@ function spawn_ranged:SpawnLevelThree()
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
 end
+
+function spawn_ranged:SpawnLevelFour()
+    self:SetUpUnitData()
+    self.unit_data.ability1 = "drow_ranger_marksmanship"
+    if self.team == DOTA_TEAM_GOODGUYS then
+        self.unit_data.name = "npc_dota_custom_drow"
+    else
+        self.unit_data.name = "npc_dota_custom_drow"
+    end
+
+    self.create_unit_modifier:CreateUnit(self.unit_data)
+end

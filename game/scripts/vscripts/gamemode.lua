@@ -13,11 +13,14 @@ require('filters')
 
 require('positions')
 
+require('wearables')
+
 LinkLuaModifier("hide_unit_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("basic_root_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("no_mana_cost_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("create_unit_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("gold_check_modifier", LUA_MODIFIER_MOTION_NONE)
+
 
 if USE_CUSTOM_ROSHAN then
 	require('components/roshan/init')
@@ -71,12 +74,44 @@ function barebones:OnGameInProgress()
 	GameRules:SetTimeOfDay(0.251)
 end
 
-
+function barebones:SetUpHeroes(unit)
+	if unit:GetUnitName() == "npc_dota_custom_sven" then
+		AttachWearable(unit, "models/heroes/sven/sven_belt.vmdl", nil)
+		AttachWearable(unit, "models/heroes/sven/sven_gauntlet.vmdl", nil)
+		AttachWearable(unit, "models/heroes/sven/sven_mask.vmdl", nil)
+		AttachWearable(unit, "models/heroes/sven/sven_shoulder.vmdl", nil)
+		AttachWearable(unit, "models/heroes/sven/sven_sword.vmdl", nil)
+	elseif unit:GetUnitName() == "npc_dota_custom_drow" then
+		AttachWearable(unit, "models/heroes/drow/drow_armor.vmdl", nil)
+		AttachWearable(unit, "models/heroes/drow/drow_bracer.vmdl", nil)
+		AttachWearable(unit, "models/heroes/drow/drow_cape.vmdl", nil)
+		AttachWearable(unit, "models/heroes/drow/drow_haircowl.vmdl", nil)
+		AttachWearable(unit, "models/heroes/drow/drow_legs.vmdl", nil)
+		AttachWearable(unit, "models/heroes/drow/drow_quiver.vmdl", nil)
+		AttachWearable(unit, "models/heroes/drow/drow_weapon.vmdl", nil)
+	elseif unit:GetUnitName() == "npc_dota_custom_furion" then
+		AttachWearable(unit, "models/heroes/furion/furion_beard.vmdl", nil)
+		AttachWearable(unit, "models/heroes/furion/furion_bracer.vmdl", nil)
+		AttachWearable(unit, "models/heroes/furion/furion_cape.vmdl", nil)
+		AttachWearable(unit, "models/heroes/furion/furion_horns.vmdl", nil)
+		AttachWearable(unit, "models/heroes/furion/furion_necklace.vmdl", nil)
+		AttachWearable(unit, "models/heroes/furion/furion_staff.vmdl", nil)
+	elseif unit:GetUnitName() == "npc_dota_custom_tidehunter" then
+		AttachWearable(unit, "models/heroes/tidehunter/tidehunter_anchor.vmdl", nil)
+		AttachWearable(unit, "models/heroes/tidehunter/tidehunter_belt.vmdl", nil)
+		AttachWearable(unit, "models/heroes/tidehunter/tidehunter_bracer.vmdl", nil)
+		AttachWearable(unit, "models/heroes/tidehunter/tidehunter_fish.vmdl", nil)
+	end
+end
 
 function barebones:OnNPCSpawned(keys)
 	local unit = EntIndexToHScript(keys.entindex)
 
-	if unit and unit:IsHero() and unit:IsRealHero() then
+	print(unit:GetUnitName())
+
+	self:SetUpHeroes(unit)
+
+	if unit and unit:IsHero() and unit:IsRealHero() and unit:GetName() == "npc_dota_hero_wisp" then
 
 		self:SpawnBuilderNpcs(unit)
 		
@@ -300,7 +335,7 @@ function barebones:InitGameMode()
 	ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(barebones, 'OnAbilityUsed'), self)
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(barebones, 'OnGameRulesStateChange'), self)
 	ListenToGameEvent('npc_spawned', Dynamic_Wrap(barebones, 'OnNPCSpawned'), self)
-	ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(barebones, 'OnPlayerPickHero'), self)
+	--ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(barebones, 'OnPlayerPickHero'), self)
 	ListenToGameEvent("player_reconnected", Dynamic_Wrap(barebones, 'OnPlayerReconnect'), self)
 	ListenToGameEvent("player_chat", Dynamic_Wrap(barebones, 'OnPlayerChat'), self)
 

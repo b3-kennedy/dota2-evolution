@@ -75,3 +75,18 @@ function spawn_melee:SpawnLevelThree()
     
 end
 
+
+function spawn_melee:SpawnLevelFour()
+    self:SetUpUnitData()
+    self.unit_data.ability1 = "juggernaut_blade_dance"
+    if self.team == DOTA_TEAM_GOODGUYS then
+        self.unit_data.name = "npc_dota_custom_sven"
+    else
+        self.unit_data.name = "npc_dota_custom_sven" 
+    end
+    self.create_unit_modifier:CreateUnit(self.unit_data)
+
+    local testunit = CreateUnitByName("npc_dota_custom_sven", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    
+end
+
