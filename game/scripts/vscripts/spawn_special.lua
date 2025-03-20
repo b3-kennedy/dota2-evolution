@@ -9,7 +9,6 @@ function spawn_special:OnSpellStart()
 
     self.spawn_pos = self:GetCaster():FindModifierByName("create_unit_modifier").spawn_pos
     self.enemy_spawn = self:GetCaster():FindModifierByName("create_unit_modifier").enemy_spawn
-    local testunit = CreateUnitByName("npc_dota_creep_badguys_flagbearer", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
 
     self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
 
@@ -49,6 +48,7 @@ function spawn_special:SpawnLevelOne()
     end
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
+    self:SpawnTestUnit(self.unit_data.name)
 end
 
 function spawn_special:SpawnLevelTwo()
@@ -60,6 +60,7 @@ function spawn_special:SpawnLevelTwo()
     end
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
+    self:SpawnTestUnit(self.unit_data.name)
 end
 
 function spawn_special:SpawnLevelThree()
@@ -71,6 +72,7 @@ function spawn_special:SpawnLevelThree()
     end
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
+    self:SpawnTestUnit(self.unit_data.name)
 end
 
 function spawn_special:SpawnLevelFour()
@@ -82,5 +84,13 @@ function spawn_special:SpawnLevelFour()
     end
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
+    self:SpawnTestUnit(self.unit_data.name)
+end
+
+function spawn_special:SpawnTestUnit(name)
+    local testunit = CreateUnitByName(name, self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    Timers:CreateTimer(0.1, function()
+        self.create_unit_modifier:MoveUnitToPosition(testunit, self.spawn_pos)
+    end)
 end
 

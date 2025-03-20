@@ -44,7 +44,7 @@ function spawn_melee:SpawnLevelOne()
     end
     self.create_unit_modifier:CreateUnit(self.unit_data)
 
-    local testunit = CreateUnitByName("npc_dota_creep_bad_melee", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    self:SpawnTestUnit(self.unit_data.name)
         
 end
 
@@ -56,7 +56,7 @@ function spawn_melee:SpawnLevelTwo()
         self.unit_data.name = "npc_dota_creep_bad_melee_mega" 
     end
 
-    local testunit = CreateUnitByName("npc_dota_creep_bad_melee_mega", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    self:SpawnTestUnit(self.unit_data.name)
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
 end
@@ -71,7 +71,7 @@ function spawn_melee:SpawnLevelThree()
     end
     self.create_unit_modifier:CreateUnit(self.unit_data)
 
-    local testunit = CreateUnitByName("npc_dota_creep_mud_golem", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    self:SpawnTestUnit(self.unit_data.name)
     
 end
 
@@ -86,7 +86,14 @@ function spawn_melee:SpawnLevelFour()
     end
     self.create_unit_modifier:CreateUnit(self.unit_data)
 
-    local testunit = CreateUnitByName("npc_dota_custom_sven", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    self:SpawnTestUnit(self.unit_data.name)
     
+end
+
+function spawn_melee:SpawnTestUnit(name)
+    local testunit = CreateUnitByName(name, self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    Timers:CreateTimer(0.1, function()
+        self.create_unit_modifier:MoveUnitToPosition(testunit, self.spawn_pos)
+    end)
 end
 

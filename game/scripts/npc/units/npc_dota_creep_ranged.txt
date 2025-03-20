@@ -369,7 +369,7 @@
         "SoundSet"					    "Hero_DrowRanger"
 
         // Abilities
-        "Ability1"                      "drow_ranger_marksmanship"
+        "Ability1"                      "armour_reduction"
         "Ability2"                      ""
         "Ability3"                      ""
         "Ability4"                      ""

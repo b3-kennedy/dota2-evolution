@@ -9,12 +9,8 @@ LinkLuaModifier("spawner_modifier_ranged", LUA_MODIFIER_MOTION_NONE)
 function spawn_ranged:OnSpellStart()
     self.spawn_pos = self:GetCaster():FindModifierByName("create_unit_modifier").spawn_pos
     self.enemy_spawn = self:GetCaster():FindModifierByName("create_unit_modifier").enemy_spawn
-
-    local testunit = CreateUnitByName("npc_dota_creep_badguys_ranged", self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
     self.create_unit_modifier = self:GetCaster():FindModifierByName("create_unit_modifier")
-    Timers:CreateTimer(0.1, function()
-        self.create_unit_modifier:MoveUnitToPosition(testunit, self.spawn_pos)
-    end)
+
 
     self.create_unit_modifier:CastWithSelection(self:GetCaster(), self:GetAbilityIndex())
 
@@ -50,6 +46,7 @@ function spawn_ranged:SpawnLevelOne()
     end
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
+    self:SpawnTestUnit(self.unit_data.name)
 
 end
 
@@ -62,6 +59,7 @@ function spawn_ranged:SpawnLevelTwo()
     end
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
+    self:SpawnTestUnit(self.unit_data.name)
 end
 
 function spawn_ranged:SpawnLevelThree()
@@ -73,11 +71,12 @@ function spawn_ranged:SpawnLevelThree()
     end
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
+    self:SpawnTestUnit(self.unit_data.name)
 end
 
 function spawn_ranged:SpawnLevelFour()
     self:SetUpUnitData()
-    self.unit_data.ability1 = "drow_ranger_marksmanship"
+    self.unit_data.ability1 = "armour_reduction"
     if self.team == DOTA_TEAM_GOODGUYS then
         self.unit_data.name = "npc_dota_custom_drow"
     else
@@ -85,4 +84,12 @@ function spawn_ranged:SpawnLevelFour()
     end
 
     self.create_unit_modifier:CreateUnit(self.unit_data)
+    self:SpawnTestUnit(self.unit_data.name)
+end
+
+function spawn_ranged:SpawnTestUnit(name)
+    local testunit = CreateUnitByName(name, self.enemy_spawn, true, self:GetCaster(), nil, DOTA_TEAM_BADGUYS)
+    Timers:CreateTimer(0.1, function()
+        self.create_unit_modifier:MoveUnitToPosition(testunit, self.spawn_pos)
+    end)
 end

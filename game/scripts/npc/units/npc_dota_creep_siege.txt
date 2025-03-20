@@ -437,7 +437,7 @@
         "SoundSet"					    "Hero_Furion"
 
         // Abilities
-        "Ability1"                      ""
+        "Ability1"                      "summon_treants"
         "Ability2"                      ""
         "Ability3"                      ""
         "Ability4"                      ""
@@ -447,9 +447,9 @@
 
         // Attack
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"24"									// Damage range min.
-		"AttackDamageMax"			"38"									// Damage range max.
-		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackDamageMin"			"90"									// Damage range min.
+		"AttackDamageMax"			"110"									// Damage range max.
+		"AttackRate"				"1.5"									// Speed of attack.
 		"AttackAnimationPoint"		"0.4"									// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"800"									// Range within a target can be acquired.
 		"AttackRange"				"600"									// Range within a target can be attacked.
@@ -495,6 +495,68 @@
             "MoveSpeedGain"             "0"
             "BountyGain"                "5"
             "XPGain"                    "15"
+        }
+    }
+
+    "npc_dota_custom_treant"
+    {
+        "BaseClass"					"npc_dota_creep"
+        "Model"						"models/heroes/furion/treant.vmdl"
+        "SoundSet"					"n_creep_Melee"
+        "Level"						"1"
+        "ModelScale" 				"1.0"
+        
+        // Abilities
+        "Ability1"					"siege"
+        "Ability2"					""
+        "Ability3"					""
+        "Ability4"					""
+
+        // Armor
+        "ArmorPhysical"				"4"
+
+        // Attack
+        "AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"			"45"
+        "AttackDamageMax"			"55"
+        "AttackRate"				"1.2"
+        "AttackAnimationPoint"		"0.33"
+        "AttackAcquisitionRange"	"600"
+        "AttackRange"				"128"
+
+        // Bounds
+        "RingRadius"				"45"
+        "HealthBarOffset"			"170"
+
+        // Bounty
+        "BountyXP"					"100"
+        "BountyGoldMin"				"150"
+        "BountyGoldMax"				"200"
+
+        // Movement
+        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"				"305"
+
+        // Status
+        "StatusHealth"				"200"
+        "StatusHealthRegen"			"2.0"
+        "StatusMana"				"200"
+        "StatusManaRegen"			"0.5"
+
+        // Vision
+        "VisionDaytimeRange"		"800"
+        "VisionNighttimeRange"		"800"
+
+        "CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+        "CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        "Creature"
+        {
+            "HPGain"                "50"
+            "DamageGain"            "2"
+            "ArmorGain"             "0.2"
+            "MoveSpeedGain"         "0"
         }
     }
 }
