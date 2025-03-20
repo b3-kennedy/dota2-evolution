@@ -3,7 +3,6 @@
 
 function AttachWearable(unit, modelPath,part)
     local wearable = SpawnEntityFromTableSynchronous("prop_dynamic", {model = modelPath, DefaultAnim=animation, targetname=DoUniqueString("prop_dynamic")})
-    print("Attaching wearables to " .. unit:GetUnitName())
     wearable:FollowEntity(unit, true)
     
     if part ~= nil then

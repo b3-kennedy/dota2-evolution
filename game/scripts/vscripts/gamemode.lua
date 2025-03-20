@@ -15,11 +15,14 @@ require('positions')
 
 require('wearables')
 
+require('string_functions')
+
 LinkLuaModifier("hide_unit_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("basic_root_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("no_mana_cost_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("create_unit_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("gold_check_modifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("wearables_modifier", LUA_MODIFIER_MOTION_NONE)
 
 
 if USE_CUSTOM_ROSHAN then
@@ -75,33 +78,58 @@ function barebones:OnGameInProgress()
 end
 
 function barebones:SetUpHeroes(unit)
+	local wearables = {}
 	if unit:GetUnitName() == "npc_dota_custom_sven" then
-		AttachWearable(unit, "models/heroes/sven/sven_belt.vmdl", nil)
-		AttachWearable(unit, "models/heroes/sven/sven_gauntlet.vmdl", nil)
-		AttachWearable(unit, "models/heroes/sven/sven_mask.vmdl", nil)
-		AttachWearable(unit, "models/heroes/sven/sven_shoulder.vmdl", nil)
-		AttachWearable(unit, "models/heroes/sven/sven_sword.vmdl", nil)
+		table.insert(wearables,AttachWearable(unit, "models/heroes/sven/sven_belt.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/sven/sven_gauntlet.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/sven/sven_mask.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/sven/sven_shoulder.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/sven/sven_sword.vmdl", nil))
+		self:AddWearablesToModifier(wearables, unit)
 	elseif unit:GetUnitName() == "npc_dota_custom_drow" then
-		AttachWearable(unit, "models/heroes/drow/drow_armor.vmdl", nil)
-		AttachWearable(unit, "models/heroes/drow/drow_bracer.vmdl", nil)
-		AttachWearable(unit, "models/heroes/drow/drow_cape.vmdl", nil)
-		AttachWearable(unit, "models/heroes/drow/drow_haircowl.vmdl", nil)
-		AttachWearable(unit, "models/heroes/drow/drow_legs.vmdl", nil)
-		AttachWearable(unit, "models/heroes/drow/drow_quiver.vmdl", nil)
-		AttachWearable(unit, "models/heroes/drow/drow_weapon.vmdl", nil)
+		table.insert(wearables,AttachWearable(unit, "models/heroes/drow/drow_armor.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/drow/drow_bracer.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/drow/drow_cape.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/drow/drow_haircowl.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/drow/drow_legs.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/drow/drow_quiver.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/drow/drow_weapon.vmdl", nil))
+		self:AddWearablesToModifier(wearables, unit)
 	elseif unit:GetUnitName() == "npc_dota_custom_furion" then
-		AttachWearable(unit, "models/heroes/furion/furion_beard.vmdl", nil)
-		AttachWearable(unit, "models/heroes/furion/furion_bracer.vmdl", nil)
-		AttachWearable(unit, "models/heroes/furion/furion_cape.vmdl", nil)
-		AttachWearable(unit, "models/heroes/furion/furion_horns.vmdl", nil)
-		AttachWearable(unit, "models/heroes/furion/furion_necklace.vmdl", nil)
-		AttachWearable(unit, "models/heroes/furion/furion_staff.vmdl", nil)
+		table.insert(wearables,AttachWearable(unit, "models/heroes/furion/furion_beard.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/furion/furion_bracer.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/furion/furion_cape.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/furion/furion_horns.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/furion/furion_necklace.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/furion/furion_staff.vmdl", nil))
+		self:AddWearablesToModifier(wearables, unit)
 	elseif unit:GetUnitName() == "npc_dota_custom_tidehunter" then
-		AttachWearable(unit, "models/heroes/tidehunter/tidehunter_anchor.vmdl", nil)
-		AttachWearable(unit, "models/heroes/tidehunter/tidehunter_belt.vmdl", nil)
-		AttachWearable(unit, "models/heroes/tidehunter/tidehunter_bracer.vmdl", nil)
-		AttachWearable(unit, "models/heroes/tidehunter/tidehunter_fish.vmdl", nil)
+		table.insert(wearables,AttachWearable(unit, "models/heroes/tidehunter/tidehunter_anchor.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/tidehunter/tidehunter_belt.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/tidehunter/tidehunter_bracer.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/tidehunter/tidehunter_fish.vmdl", nil))
+		self:AddWearablesToModifier(wearables, unit)
+	elseif unit:GetUnitName() == "npc_dota_custom_phantom_assassin" then
+		table.insert(wearables,AttachWearable(unit, "models/heroes/phantom_assassin/phantom_assassin_cape.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/phantom_assassin/phantom_assassin_daggers.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/phantom_assassin/phantom_assassin_helmet.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/phantom_assassin/phantom_assassin_shoulders.vmdl", nil))
+		table.insert(wearables,AttachWearable(unit, "models/heroes/phantom_assassin/phantom_assassin_weapon.vmdl", nil))
+		self:AddWearablesToModifier(wearables, unit)
 	end
+
+end
+
+function barebones:AddWearablesToModifier(wearables, unit)
+	local string_table = ""
+	for i = 1, #wearables do
+		if i == 1 then
+			string_table = tostring(wearables[i]:entindex())
+		else
+			string_table = string_table .. "," .. tostring(wearables[i]:entindex())
+		end
+	end
+	unit:AddNewModifier(unit, nil, "wearables_modifier", {string_table = string_table})
 end
 
 function barebones:OnNPCSpawned(keys)

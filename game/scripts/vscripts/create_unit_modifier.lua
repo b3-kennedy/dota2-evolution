@@ -64,6 +64,7 @@ function create_unit_modifier:Spawn(data)
     local ability = self:GetParent():FindAbilityByName(data.ability)
     local spawn_pos = ability.spawn_pos
 
+
     local unit = CreateUnitByName(
         data.name, 
         spawn_pos, 
@@ -140,7 +141,7 @@ end
 
 function create_unit_modifier:MoveUnitToPosition(unit, position)
     local order = DOTA_UNIT_ORDER_ATTACK_MOVE
-    if unit:GetName() ~= "npc_dota_heal_unit" then
+    if unit:GetUnitName() ~= "npc_dota_heal_unit" then
         order = DOTA_UNIT_ORDER_ATTACK_MOVE
     else
         order = DOTA_UNIT_ORDER_MOVE_TO_POSITION

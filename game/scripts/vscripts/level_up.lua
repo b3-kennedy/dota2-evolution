@@ -13,6 +13,15 @@ function level_up:OnSpellStart()
     
     PlayerResource:SpendGold(self:GetCaster():GetPlayerOwnerID(),self:GetManaCost(self:GetLevel()-1),DOTA_ModifyGold_AbilityCost)
 
+    if self:GetCaster():GetUnitName() == "npc_dota_special_unit_creator" then
+        
+        if self:GetLevel()+1 == 2 then
+            self:GetCaster():RemoveAbility("spawn_scout_hawk")
+            self:GetCaster():AddAbility("spawn_assassin")
+
+        end
+    end
+
     for i=0, self:GetCaster():GetAbilityCount()-1 do
         local ability = self:GetCaster():GetAbilityByIndex(i)
         if ability then

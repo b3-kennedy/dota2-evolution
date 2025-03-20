@@ -435,6 +435,27 @@
 		"AbilityManaCost"				"50"	
 	}
 
+	"spawn_assassin"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"spawn_assassin"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"		"bounty_hunter_jinada"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0 0.0 0.0 0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"	
+	}
+
 	"unit_heal"
 	{
 		"BaseClass"					"ability_lua"
@@ -546,5 +567,30 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"				
+	}
+
+	"far_blink"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"far_blink"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+
+		"AbilityCastRange"			"900"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"	
+
+		"AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP"
 	}
 }

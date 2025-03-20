@@ -25,6 +25,18 @@ function unit_heal_modifier:OnIntervalThink()
         false  -- Ignore obstacles
     )
 
+    local enemies = FindUnitsInRadius(
+        self.team_number,  -- Team of the caster
+        self:GetParent():GetAbsOrigin(),  -- Position to center the AoE
+        nil,  -- No specific unit to ignore
+        500,  -- Radius of the AoE
+        DOTA_UNIT_TARGET_TEAM_ENEMY,  -- Targeting enemy units
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,  -- Target all unit types
+        DOTA_UNIT_TARGET_FLAG_NONE,  -- No specific flags
+        FIND_ANY_ORDER,  -- Find in any order
+        false  -- Ignore obstacles
+    )
+
     self.filtered_allies = {}
     for _, ally in pairs(allies) do
         if ally ~= self:GetParent() and (ally:GetHealth() < ally:GetMaxHealth()) then
@@ -41,7 +53,7 @@ function unit_heal_modifier:OnIntervalThink()
         end
     end
 
-    if #self.filtered_allies > 0 then
+    if #enemies > 0  or #self.filtered_allies > 0 then
         ExecuteOrderFromTable({
             UnitIndex = self:GetParent():entindex(),  -- The unit that will execute the stop
             OrderType = DOTA_UNIT_ORDER_STOP,  -- The stop order
@@ -50,9 +62,9 @@ function unit_heal_modifier:OnIntervalThink()
     else
 
         if(self:GetParent():GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
-            pos = PLAYER_SPAWN_RADIANT
-        else
             pos = PLAYER_SPAWN_DIRE
+        else
+            pos = PLAYER_SPAWN_RADIANT
         end
 
         ExecuteOrderFromTable({

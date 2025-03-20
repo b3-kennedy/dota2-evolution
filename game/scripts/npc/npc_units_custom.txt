@@ -17,6 +17,7 @@
 #base "units/npc_dota_special_unit_creator.txt"
 #base "units/npc_dota_scout_hawk.txt"
 #base "units/npc_dota_heal_unit.txt"
+#base "units/npc_dota_assassin.txt"
 
 
 "DOTAUnits"
