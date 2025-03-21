@@ -19,11 +19,11 @@ function far_blink:OnSpellStart()
     caster:FindAbilityByName("phantom_assassin_coup_de_grace"):SetLevel(3)
 
     if target ~= nil then
-        caster:AddNewModifier(caster,self,"invisibility_modifier", {duration = 5})
+        caster:AddNewModifier(caster,self,"invisibility_modifier", {duration = 3})
         local direction = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
         local position = modifier.target:GetAbsOrigin() - (direction * 100)
         FindClearSpaceForUnit(caster, position, true)
-        target:AddNewModifier(target, self, "basic_root_modifier", {duration = 5})
+        target:AddNewModifier(target, self, "basic_root_modifier", {duration = 3})
         ExecuteOrderFromTable({
             UnitIndex = caster:entindex(),  -- The unit that should attack
             OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,  -- For attacking a specific target

@@ -19,6 +19,20 @@ function level_up:OnSpellStart()
             self:GetCaster():RemoveAbility("spawn_scout_hawk")
             self:GetCaster():AddAbility("spawn_assassin")
 
+            self:GetCaster():RemoveAbility("spawn_tank")
+            self:GetCaster():AddAbility("spawn_magic_resist")
+
+            self:GetCaster():RemoveAbility("spawn_heal")
+            self:GetCaster():AddAbility("spawn_lina")
+        elseif self:GetLevel()+1 == 3 then
+            self:GetCaster():RemoveAbility("spawn_magic_resist")
+            self:GetCaster():AddAbility("spawn_centaur")
+
+            self:GetCaster():RemoveAbility("spawn_assassin")
+            self:GetCaster():AddAbility("spawn_sniper")
+
+            self:GetCaster():RemoveAbility("spawn_lina")
+            self:GetCaster():AddAbility("spawn_lion")
         end
     end
 

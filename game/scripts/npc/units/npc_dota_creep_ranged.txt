@@ -186,7 +186,7 @@
         "MovementSpeed"                 "325"
 
         // Status
-        "StatusHealth"                  "300"
+        "StatusHealth"                  "400"
         "StatusHealthRegen"             "0.5"
         "StatusMana"                    "500"
         "StatusManaRegen"               "0.0"
@@ -258,7 +258,7 @@
         "MovementSpeed"                 "325"
 
         // Status
-        "StatusHealth"                  "300"
+        "StatusHealth"                  "400"
         "StatusHealthRegen"             "0.5"
         "StatusMana"                    "500"
         "StatusManaRegen"               "0.0"
@@ -297,7 +297,7 @@
         "ModelScale"                    "0.9"
         
         // Abilities
-        "Ability1"                      "fireball"
+        "Ability1"                      ""
         "Ability2"                      ""
         "Ability3"                      ""
         "Ability4"                      ""
@@ -330,7 +330,7 @@
         "MovementSpeed"                 "300"
 
         // Status
-        "StatusHealth"                  "800"
+        "StatusHealth"                  "500"
         "StatusHealthRegen"             "1"
         "StatusMana"                    "400"
         "StatusManaRegen"               "0.5"
@@ -402,7 +402,7 @@
         "MovementSpeed"                 "300"
 
         // Status
-        "StatusHealth"                  "800"
+        "StatusHealth"                  "600"
         "StatusHealthRegen"             "1"
         "StatusMana"                    "400"
         "StatusManaRegen"               "0.5"

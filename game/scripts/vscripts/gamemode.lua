@@ -116,8 +116,38 @@ function barebones:SetUpHeroes(unit)
 		table.insert(wearables,AttachWearable(unit, "models/heroes/phantom_assassin/phantom_assassin_shoulders.vmdl", nil))
 		table.insert(wearables,AttachWearable(unit, "models/heroes/phantom_assassin/phantom_assassin_weapon.vmdl", nil))
 		self:AddWearablesToModifier(wearables, unit)
+	elseif unit:GetUnitName() == "npc_dota_custom_slardar" then
+		table.insert(wearables, AttachWearable(unit, "models/heroes/slardar/slardar_arms.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/slardar/slardar_back.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/slardar/slardar_weapon.vmdl", nil))
+		self:AddWearablesToModifier(wearables, unit)
+	elseif unit:GetUnitName() == "npc_dota_custom_lina" then
+		table.insert(wearables, AttachWearable(unit, "models/heroes/lina/lina_arms.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/lina/lina_belt.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/lina/lina_head.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/lina/lina_neck.vmdl", nil))
+	elseif unit:GetUnitName() == "npc_dota_custom_centaur" then
+		table.insert(wearables, AttachWearable(unit, "models/heroes/centaur/belt.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/centaur/bracer.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/centaur/shield.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/centaur/shoulder.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/centaur/tail.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/centaur/weapon.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/centaur/headitem.vmdl", nil))
+	elseif unit:GetUnitName() == "npc_dota_custom_sniper" then
+		table.insert(wearables, AttachWearable(unit, "models/heroes/sniper/bracer.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/sniper/cape.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/sniper/headitem.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/sniper/shoulder.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/sniper/weapon.vmdl", nil))
+	elseif unit:GetUnitName() == "npc_dota_custom_lion" then
+		table.insert(wearables, AttachWearable(unit, "models/heroes/lion/lion_cape.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/lion/lion_cape.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/lion/lion_hat.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/lion/lion_shoulder.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/lion/lion_weapon.vmdl", nil))
 	end
-
+	--table.insert(wearables, AttachWearable(unit, "", nil))
 end
 
 function barebones:AddWearablesToModifier(wearables, unit)

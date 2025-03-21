@@ -43,7 +43,7 @@
         "MovementSpeed"                 "250"  // Siege creeps are usually slower
 
         // Status
-        "StatusHealth"                  "1200" // Higher health for siege units
+        "StatusHealth"                  "800" // Higher health for siege units
         "StatusHealthRegen"             "4.0"  // Higher regen as siege creeps are more resilient
         "StatusMana"                    "0"
         "StatusManaRegen"               "0.0"
@@ -114,7 +114,7 @@
         "MovementSpeed"                 "250"  // Siege creeps are usually slower
 
         // Status
-        "StatusHealth"                  "1200" // Higher health for siege units
+        "StatusHealth"                  "800" // Higher health for siege units
         "StatusHealthRegen"             "4.0"  // Higher regen as siege creeps are more resilient
         "StatusMana"                    "0"
         "StatusManaRegen"               "0.0"
@@ -185,7 +185,7 @@
         "MovementSpeed"                 "250"  // Siege creeps are usually slower
 
         // Status
-        "StatusHealth"                  "1200" // Higher health for siege units
+        "StatusHealth"                  "900" // Higher health for siege units
         "StatusHealthRegen"             "4.0"  // Higher regen as siege creeps are more resilient
         "StatusMana"                    "0"
         "StatusManaRegen"               "0.0"
@@ -256,7 +256,7 @@
         "MovementSpeed"                 "250"  // Siege creeps are usually slower
 
         // Status
-        "StatusHealth"                  "1200" // Higher health for siege units
+        "StatusHealth"                  "900" // Higher health for siege units
         "StatusHealthRegen"             "4.0"  // Higher regen as siege creeps are more resilient
         "StatusMana"                    "0"
         "StatusManaRegen"               "0.0"
@@ -327,7 +327,7 @@
         "MovementSpeed"                 "250"  // Siege creeps are usually slower
 
         // Status
-        "StatusHealth"                  "1200" // Higher health for siege units
+        "StatusHealth"                  "1000" // Higher health for siege units
         "StatusHealthRegen"             "4.0"  // Higher regen as siege creeps are more resilient
         "StatusMana"                    "0"
         "StatusManaRegen"               "0.0"
@@ -398,7 +398,7 @@
         "MovementSpeed"                 "250"  // Siege creeps are usually slower
 
         // Status
-        "StatusHealth"                  "1200" // Higher health for siege units
+        "StatusHealth"                  "1000" // Higher health for siege units
         "StatusHealthRegen"             "4.0"  // Higher regen as siege creeps are more resilient
         "StatusMana"                    "0"
         "StatusManaRegen"               "0.0"
@@ -470,7 +470,7 @@
         "MovementSpeed"                 "300"
 
         // Status
-        "StatusHealth"                  "800"
+        "StatusHealth"                  "1100"
         "StatusHealthRegen"             "1"
         "StatusMana"                    "400"
         "StatusManaRegen"               "0.5"

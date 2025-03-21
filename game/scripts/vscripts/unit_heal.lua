@@ -14,6 +14,7 @@ function unit_heal:OnSpellStart()
     self.target = self:GetCaster():FindModifierByName("unit_heal_modifier").lowest_health_ally
 
     if self.target then
-        self.target:ModifyHealth(self.target:GetHealth() + 25, self, true,0)
+        local percent = self.target:GetMaxHealth() * 0.05
+        self.target:ModifyHealth(self.target:GetHealth() + percent, self, true,0)
     end
 end

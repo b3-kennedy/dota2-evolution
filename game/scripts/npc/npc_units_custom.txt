@@ -18,6 +18,8 @@
 #base "units/npc_dota_scout_hawk.txt"
 #base "units/npc_dota_heal_unit.txt"
 #base "units/npc_dota_assassin.txt"
+#base "units/npc_dota_magic_resist.txt"
+#base "units/npc_dota_spellcaster.txt"
 
 
 "DOTAUnits"

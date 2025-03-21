@@ -186,7 +186,7 @@
         "MovementSpeed"                 "325"
 
         // Status
-        "StatusHealth"                  "550"
+        "StatusHealth"                  "650"
         "StatusHealthRegen"             "2.0"
         "StatusMana"                    "0"
         "StatusManaRegen"               "0.0"
@@ -256,7 +256,7 @@
         "MovementSpeed"                 "325"
 
         // Status
-        "StatusHealth"                  "550"
+        "StatusHealth"                  "650"
         "StatusHealthRegen"             "2.0"
         "StatusMana"                    "0"
         "StatusManaRegen"               "0.0"
@@ -327,7 +327,7 @@
         "MovementSpeed"                 "325"
 
         // Status
-        "StatusHealth"                  "550"
+        "StatusHealth"                  "750"
         "StatusHealthRegen"             "2.0"
         "StatusMana"                    "0"
         "StatusManaRegen"               "0.0"
@@ -397,7 +397,7 @@
         "MovementSpeed"                 "325"
 
         // Status
-        "StatusHealth"                  "550"
+        "StatusHealth"                  "850"
         "StatusHealthRegen"             "2.0"
         "StatusMana"                    "0"
         "StatusManaRegen"               "0.0"
