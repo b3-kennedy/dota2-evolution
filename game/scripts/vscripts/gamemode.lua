@@ -3,6 +3,8 @@ BAREBONES_VERSION = "2.0.18"
 
 -- Selection library (by Noya) provides player selection inspection and management from server lua
 require('libraries/selection')
+require('libraries/playertables')
+require('libraries/worldpanels')
 
 -- settings.lua is where you can specify many different properties for your game mode and is one of the core barebones files.
 require('settings')
@@ -265,6 +267,10 @@ function barebones:SpawnBuilderNpcs(unit)
 
 end
 
+function barebones:OnUpdateWorldPanelText()
+
+end
+
 -- This function initializes the game mode and is called before anyone loads into the game
 -- It can be used to pre-initialize any values/tables that will be needed later
 function barebones:InitGameMode()
@@ -380,6 +386,12 @@ function barebones:InitGameMode()
 
 	-- Event Hooks / Listeners
 	DebugPrint("[BAREBONES] Setting Event Hooks / Listeners.")
+
+	
+
+	CustomGameEventManager:RegisterListener("update_world_panel_text", Dynamic_Wrap(barebones, "OnUpdateWorldPanelText"))
+
+
 	ListenToGameEvent('dota_player_gained_level', Dynamic_Wrap(barebones, 'OnPlayerLevelUp'), self)
 	ListenToGameEvent('dota_player_learned_ability', Dynamic_Wrap(barebones, 'OnPlayerLearnedAbility'), self)
 	--ListenToGameEvent('entity_killed', Dynamic_Wrap(barebones, 'OnUnitKilled'), self)
@@ -399,6 +411,7 @@ function barebones:InitGameMode()
 
 	ListenToGameEvent("dota_tower_kill", Dynamic_Wrap(barebones, 'OnTowerKill'), self)
 	ListenToGameEvent("dota_player_selected_custom_team", Dynamic_Wrap(barebones, 'OnPlayerSelectedCustomTeam'), self)
+	ListenToGameEvent("dota_npc_goal_reached", Dynamic_Wrap(barebones, 'OnNPCGoalReached'), self)
 	ListenToGameEvent("dota_npc_goal_reached", Dynamic_Wrap(barebones, 'OnNPCGoalReached'), self)
 
 	-- Change random seed for math.random function

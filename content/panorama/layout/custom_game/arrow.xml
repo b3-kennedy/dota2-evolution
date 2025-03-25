@@ -1,0 +1,11 @@
+<root> 
+  <styles>
+    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    <include src="file://{resources}/styles/custom_game/arrow.css" />
+  </styles>
+  <Panel hittest="false" class="ArrowPanel">
+    <Label class="textthing" id="head" text="Bandit Squad"> </Label>
+    <Label class="textthing" text="Kill and Capture this Squad"> </Label>
+    <Label class="textthing" text="to gain Allies"> </Label>
+  </Panel>
+</root>

@@ -9,6 +9,8 @@
 		<!-- CustomUIElements go here.-->
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/selection.xml"/>
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_hud_base.xml"/>
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_worldpanels.xml" />
+		<!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/test_panel.xml" />--> 
 		<!-- From Overthrow:
         <CustomUIElement type="HudTopBar"           layoutfile="file://{resources}/layout/custom_game/multiteam_top_scoreboard.xml"/>
         <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/overthrow_item_notification.xml"/>

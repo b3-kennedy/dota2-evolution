@@ -162,6 +162,8 @@ end
 function WorldPanels:CreateWorldPanel(pids, conf)
   --{position, entity, offsetX, offsetY, hAlign, vAlign, entityHeight, edge, duration, data}
   -- duration?
+  print("created world panel")
+
   if type(pids) == "number" then
     pids = {pids}
   end

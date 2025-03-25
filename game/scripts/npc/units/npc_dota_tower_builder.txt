@@ -21,7 +21,7 @@
         "Ability2"					"build_gold"			// Ability 2
         "Ability3"					"build_barracks"			// Ability 3
         "Ability4"					"build_special_barracks"			// Ability 4
-        "Ability5"                  "special_ability"
+        "Ability5"                  "build_special_ability"
 
         // Armor
         //----------------------------------------------------------------

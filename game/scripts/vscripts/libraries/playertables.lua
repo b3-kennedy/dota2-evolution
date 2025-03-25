@@ -139,7 +139,7 @@ function PlayerTables:copy(obj, seen)
 end
 
 function PlayerTables:PlayerTables_Connected(args)
-  --print('PlayerTables_Connected')
+  print('PlayerTables_Connected')
   --PrintTable(args)
 
   local pid = args.PlayerID

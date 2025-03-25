@@ -20,6 +20,7 @@
 #base "units/npc_dota_assassin.txt"
 #base "units/npc_dota_magic_resist.txt"
 #base "units/npc_dota_spellcaster.txt"
+#base "units/npc_dota_special_ability_building.txt"
 
 
 "DOTAUnits"

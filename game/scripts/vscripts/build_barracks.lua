@@ -3,9 +3,13 @@ build_barracks = class({})
 require('positions')
 require('placement_check')
 
+
+
 LinkLuaModifier("create_unit_modifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("world_panel_holder_modifier", LUA_MODIFIER_MOTION_NONE)
 
 function build_barracks:OnSpellStart()
+    require("libraries/worldpanels")
     if PlayerResource:GetGold(self:GetCaster():GetPlayerOwnerID()) >= self:GetManaCost(self:GetLevel()) then
         self.caster = self:GetCaster()
         self.mouse_pos = self:GetCursorPosition()
@@ -42,6 +46,7 @@ function build_barracks:OnSpellStart()
                 self:GetManaCost(self:GetLevel()),
                 DOTA_ModifyGold_AbilityCost
             )
+            building:AddNewModifier(self:GetCaster(), self, "world_panel_holder_modifier", kv)
         end
     else
         CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(self:GetCaster():GetPlayerOwnerID()), "display_custom_error", { message = "Not Enough Gold" })

@@ -40,6 +40,8 @@ function sniper_assassinate:OnSpellStart()
 	local sound_target = "Hero_Sniper.AssassinateProjectile"
 	EmitSoundOn( sound_cast, target )
 end
+
+
 --------------------------------------------------------------------------------
 -- Projectile
 function sniper_assassinate:OnProjectileHit( target, location)
@@ -58,4 +60,14 @@ function sniper_assassinate:OnProjectileHit( target, location)
 	-- effects
 	local sound_cast = "Hero_Sniper.AssassinateDamage"
 	EmitSoundOn( sound_cast, target )
+end
+
+function sniper_assassinate:OnAbilityPhaseInterrupted()
+	local modifier = self:GetCaster():FindModifierByName("sniper_assassinate_modifier")
+	ExecuteOrderFromTable({
+		UnitIndex = self:GetCaster():entindex(),
+		OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+		Position = modifier.enemy_spawn,
+		Queue = false,
+	})
 end

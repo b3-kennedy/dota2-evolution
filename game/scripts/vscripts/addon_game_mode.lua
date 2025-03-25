@@ -103,4 +103,5 @@ function Activate()
 	DebugPrint("[BAREBONES] Activating ...")
 	print("Your custom game is activating.")
 	barebones:InitGameMode()
+	require('libraries/worldpanels')
 end

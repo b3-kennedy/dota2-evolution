@@ -1,0 +1,18 @@
+
+.HelloWorldPanel {
+    flow-children:down;
+    z-index: -10;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+}
+
+#HelloLabel {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    horizontal-align: center;
+    vertical-align: center;
+}
+

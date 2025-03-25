@@ -10,7 +10,7 @@ end
 
 function level_up:OnSpellStart()
     self.current_max_level = 4
-    
+    local panel_modifier = self:GetCaster():FindModifierByName("world_panel_holder_modifier")
     PlayerResource:SpendGold(self:GetCaster():GetPlayerOwnerID(),self:GetManaCost(self:GetLevel()-1),DOTA_ModifyGold_AbilityCost)
 
     if self:GetCaster():GetUnitName() == "npc_dota_special_unit_creator" then
@@ -49,6 +49,11 @@ function level_up:OnSpellStart()
     if self:GetLevel() == self.current_max_level then
         self:SetActivated(false)
     end
+
+    if panel_modifier then
+        panel_modifier:OnLevel(self:GetLevel())
+    end
+
 end
 
 function level_up:GetAbilityTag()
