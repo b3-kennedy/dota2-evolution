@@ -156,6 +156,11 @@ function barebones:SetUpHeroes(unit)
 		table.insert(wearables, AttachWearable(unit, "models/heroes/treant_protector/head.vmdl", nil))
 		table.insert(wearables, AttachWearable(unit, "models/heroes/treant_protector/legs.vmdl", nil))
 		table.insert(wearables, AttachWearable(unit, "models/heroes/treant_protector/treant_crow.vmdl", nil))
+	elseif unit:GetUnitName() == "npc_dota_custom_venomancer" then
+		table.insert(wearables, AttachWearable(unit, "models/heroes/venomancer/venomancer_arms.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/venomancer/venomancer_jaw.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/venomancer/venomancer_shoulder.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/venomancer/venomancer_tail.vmdl", nil))
 	end
 	--table.insert(wearables, AttachWearable(unit, "", nil))
 end

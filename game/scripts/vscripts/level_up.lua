@@ -38,6 +38,7 @@ function level_up:OnSpellStart()
             self:GetCaster():AddAbility("spawn_treant")
 
             self:GetCaster():RemoveAbility("spawn_sniper")
+            self:GetCaster():AddAbility("spawn_veno")
 
             self:GetCaster():RemoveAbility("spawn_lion")
         end

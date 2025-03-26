@@ -1,0 +1,148 @@
+"DOTAUnits"
+{
+    "npc_dota_custom_venomancer"
+    {
+        // General
+        "BaseClass"                     "npc_dota_creature"
+        "Model"                         "models/heroes/venomancer/venomancer.vmdl"
+        "Level"                         "1"
+        "ModelScale"                    "1.0"
+        
+        "SoundSet"					    "Hero_Venomancer"
+
+        // Abilities
+        "Ability1"                      "summon_ward"
+        "Ability2"                      ""
+        "Ability3"                      ""
+        "Ability4"                      ""
+
+        // Armor
+        "ArmorPhysical"                 "3"
+
+        // Attack
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"90"									// Damage range min.
+		"AttackDamageMax"			"110"									// Damage range max.
+		"AttackRate"				"1.5"									// Speed of attack.
+		"AttackAnimationPoint"		"0.4"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"									// Range within a target can be acquired.
+		"AttackRange"				"400"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_furion/furion_base_attack.vpcf"					// Particle system model for projectile.
+		"ProjectileSpeed"			"1125"		
+
+        // Bounds
+        "RingRadius"                    "50"
+        "HealthBarOffset"               "170"
+
+        // Bounty
+        "BountyXP"                      "88"
+        "BountyGoldMin"                 "170"
+        "BountyGoldMax"                 "170"
+
+        // Movement
+        "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"                 "300"
+
+        // Status
+        "StatusHealth"                  "1100"
+        "StatusHealthRegen"             "1"
+        "StatusMana"                    "400"
+        "StatusManaRegen"               "0.5"
+        
+        // Vision
+        "VisionDaytimeRange"            "800"
+        "VisionNighttimeRange"          "800"
+
+        // Team
+        "TeamName"                      "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack"             "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+        "CombatClassDefend"             "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+        "UnitRelationshipClass"         "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        "Creature"
+        {
+            "HPGain"                    "75"
+            "DamageGain"                "4"
+            "ArmorGain"                 "0.5"
+            "MagicResistGain"           "0.1"
+            "MoveSpeedGain"             "0"
+            "BountyGain"                "5"
+            "XPGain"                    "15"
+        }
+    }
+
+    "npc_dota_custom_plague_ward"
+    {
+        // General
+        "BaseClass"                     "npc_dota_creature"
+        "Model"                         "models/heroes/venomancer/venomancer_ward.vmdl"
+        "Level"                         "1"
+        "ModelScale"                    "1.0"
+        
+        "SoundSet"					    "Hero_Venomancer"
+
+        "HasCollsion"                   "0"
+
+        // Abilities
+        "Ability1"                      ""
+        "Ability2"                      ""
+        "Ability3"                      ""
+        "Ability4"                      ""
+
+        // Armor
+        "ArmorPhysical"                 "3"
+
+        // Attack
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"5"									// Damage range min.
+		"AttackDamageMax"			"10"									// Damage range max.
+		"AttackRate"				"1.5"									// Speed of attack.
+		"AttackAnimationPoint"		"0.4"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"800"									// Range within a target can be acquired.
+		"AttackRange"				"600"									// Range within a target can be attacked.
+		"ProjectileModel"			"particles/units/heroes/hero_furion/furion_base_attack.vpcf"					// Particle system model for projectile.
+		"ProjectileSpeed"			"1125"		
+
+        // Bounds
+        "RingRadius"                    "0"
+        "HealthBarOffset"               "170"
+
+        // Bounty
+        "BountyXP"                      "88"
+        "BountyGoldMin"                 "30"
+        "BountyGoldMax"                 "30"
+
+        // Movement
+        "MovementCapabilities"          "DOTA_UNIT_CAP_NO_MOVE"
+        "MovementSpeed"                 "0"
+
+        // Status
+        "StatusHealth"                  "200"
+        "StatusHealthRegen"             "1"
+        "StatusMana"                    "0"
+        "StatusManaRegen"               "0.5"
+        
+        // Vision
+        "VisionDaytimeRange"            "800"
+        "VisionNighttimeRange"          "800"
+
+        // Team
+        "TeamName"                      "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack"             "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+        "CombatClassDefend"             "DOTA_COMBAT_CLASS_DEFEND_STRONG"
+        "UnitRelationshipClass"         "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        "Creature"
+        {
+            "HPGain"                    "75"
+            "DamageGain"                "4"
+            "ArmorGain"                 "0.5"
+            "MagicResistGain"           "0.1"
+            "MoveSpeedGain"             "0"
+            "BountyGain"                "5"
+            "XPGain"                    "15"
+        }
+    }
+}
