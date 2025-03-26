@@ -33,7 +33,15 @@ function level_up:OnSpellStart()
 
             self:GetCaster():RemoveAbility("spawn_lina")
             self:GetCaster():AddAbility("spawn_lion")
+        elseif self:GetLevel()+1 == 4 then
+            self:GetCaster():RemoveAbility("spawn_centaur")
+            self:GetCaster():AddAbility("spawn_treant")
+
+            self:GetCaster():RemoveAbility("spawn_sniper")
+
+            self:GetCaster():RemoveAbility("spawn_lion")
         end
+    elseif self:GetCaster():GetUnitName() == "npc_dota_special_ability_building" then
     end
 
     for i=0, self:GetCaster():GetAbilityCount()-1 do

@@ -3,6 +3,7 @@ create_unit_modifier = class({})
 require('queue')
 require('libraries/timers')
 require('libraries/notifications')
+require('positions')
 
 LinkLuaModifier("juggernaut_modifier", LUA_MODIFIER_MOTION_NONE)
 
@@ -92,7 +93,7 @@ function create_unit_modifier:Spawn(data)
     self.last_spawn_time = GameRules:GetGameTime()
 
     if data.ability1 ~= nil then
-        unit:FindAbilityByName(data.ability1):SetLevel(ability:GetLevel())
+        unit:FindAbilityByName(data.ability1):SetLevel(4)
     end
 
     self.queue:dequeue()
@@ -110,19 +111,15 @@ function create_unit_modifier:OnCreated( kv )
     local player_index = kv.player
     self.player = EntIndexToHScript(player_index)
 
-    print(self.player)
-
-
-    local spawn = Vector(kv.spawn_x, kv.spawn_y, kv.spawn_z)
 
     if(self:GetParent():GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
         --radiant spawn pos
-         self.spawn_pos = spawn
-         self.enemy_spawn = Vector(195.836, 2322.42, 128)
+         self.spawn_pos = PLAYER_SPAWN_RADIANT
+         self.enemy_spawn = PLAYER_SPAWN_DIRE
     elseif self:GetParent():GetTeamNumber() == DOTA_TEAM_BADGUYS then
         --dire spawn pos
-         self.spawn_pos = spawn
-         self.enemy_spawn = Vector(0, -2322.42, 128)
+         self.spawn_pos = PLAYER_SPAWN_DIRE
+         self.enemy_spawn = PLAYER_SPAWN_RADIANT
     end
 
     self:StartIntervalThink(0.1)

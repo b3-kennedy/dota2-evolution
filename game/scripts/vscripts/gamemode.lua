@@ -25,6 +25,7 @@ LinkLuaModifier("no_mana_cost_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("create_unit_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("gold_check_modifier", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("wearables_modifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("treant_protector_modifier", LUA_MODIFIER_MOTION_NONE)
 
 
 if USE_CUSTOM_ROSHAN then
@@ -148,6 +149,13 @@ function barebones:SetUpHeroes(unit)
 		table.insert(wearables, AttachWearable(unit, "models/heroes/lion/lion_hat.vmdl", nil))
 		table.insert(wearables, AttachWearable(unit, "models/heroes/lion/lion_shoulder.vmdl", nil))
 		table.insert(wearables, AttachWearable(unit, "models/heroes/lion/lion_weapon.vmdl", nil))
+	elseif unit:GetUnitName() == "npc_dota_custom_treant_protector" then
+		unit:AddNewModifier(unit, nil, "treant_protector_modifier", {duration = -1})
+		table.insert(wearables, AttachWearable(unit, "models/heroes/treant_protector/foliage.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/treant_protector/hands.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/treant_protector/head.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/treant_protector/legs.vmdl", nil))
+		table.insert(wearables, AttachWearable(unit, "models/heroes/treant_protector/treant_crow.vmdl", nil))
 	end
 	--table.insert(wearables, AttachWearable(unit, "", nil))
 end
@@ -209,7 +217,10 @@ function barebones:SpawnBuilderNpcs(unit)
 	-- }
 	if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 
-		local tower_builder = CreateUnitByName("npc_dota_tower_builder_good", Vector(0,-2589.26,140), false, unit, unit, unit:GetTeamNumber())
+		-- {
+		-- 	origin = "2130.44 57.7247 128"
+		-- }
+		local tower_builder = CreateUnitByName("npc_dota_tower_builder_good", PLAYER_SPAWN_RADIANT, false, unit, unit, unit:GetTeamNumber())
 		for i=0, tower_builder:GetAbilityCount()-1 do
 			local ability = tower_builder:GetAbilityByIndex(i)
 			ability:SetLevel(1)
@@ -223,7 +234,7 @@ function barebones:SpawnBuilderNpcs(unit)
 		-- 	origin = "631.045 -2264.37 128.062"
 		-- }
 
-		local barracks = CreateUnitByName("npc_dota_unit_creator", Vector(631.045, -2264.37, 128.062), false, unit, unit, unit:GetTeamNumber())
+		local barracks = CreateUnitByName("npc_dota_unit_creator", BUILDING_SPAWN_RADIANT, false, unit, unit, unit:GetTeamNumber())
 		barracks:SetOwner(unit)
 		barracks:SetControllableByPlayer(unit:GetPlayerOwnerID(), true)
 		local kv = {
@@ -236,9 +247,10 @@ function barebones:SpawnBuilderNpcs(unit)
 		barracks:AddNewModifier(barracks, barracks, "create_unit_modifier", kv)
 		barracks:AddNewModifier(barracks, nil, "basic_root_modifier", {duration = -1})
 		barracks:AddNewModifier(barracks, nil, "modifier_invulnerable", {duration = -1})
+		barracks:AddNewModifier(barracks, nil, "world_panel_holder_modifier", {duration = -1})
 
 	else
-		local tower_builder = CreateUnitByName("npc_dota_tower_builder_bad", Vector(0,2589.26,140), false, unit, unit, unit:GetTeamNumber())
+		local tower_builder = CreateUnitByName("npc_dota_tower_builder_bad", PLAYER_SPAWN_DIRE, false, unit, unit, unit:GetTeamNumber())
 		for i=0, tower_builder:GetAbilityCount()-1 do
 			local ability = tower_builder:GetAbilityByIndex(i)
 			ability:SetLevel(1)
@@ -247,7 +259,7 @@ function barebones:SpawnBuilderNpcs(unit)
 		tower_builder:SetControllableByPlayer(unit:GetPlayerOwnerID(), true)
 		tower_builder:AddNewModifier(tower_builder, nil, "basic_root_modifier", {duration = -1})
 		tower_builder:RemoveModifierByName("modifier_invulnerable")
-		local barracks = CreateUnitByName("npc_dota_unit_creator", Vector(631.045, 2264.37, 128.062), false, unit, unit, unit:GetTeamNumber())
+		local barracks = CreateUnitByName("npc_dota_unit_creator", BUILDING_SPAWN_DIRE, false, unit, unit, unit:GetTeamNumber())
 		barracks:SetOwner(unit)
 		barracks:SetControllableByPlayer(unit:GetPlayerOwnerID(), true)
 		local kv = {
@@ -260,6 +272,7 @@ function barebones:SpawnBuilderNpcs(unit)
 		barracks:AddNewModifier(barracks, barracks, "create_unit_modifier", kv)
 		barracks:AddNewModifier(barracks, nil, "basic_root_modifier", {duration = -1})
 		barracks:AddNewModifier(barracks, nil, "modifier_invulnerable", {duration = -1})
+		barracks:AddNewModifier(barracks, nil, "world_panel_holder_modifier", {duration = -1})
 	end
 
 	

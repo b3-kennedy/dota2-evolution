@@ -3,6 +3,8 @@ build_special_ability = class({})
 require('positions')
 require('placement_check')
 
+LinkLuaModifier("world_panel_holder_modifier", LUA_MODIFIER_MOTION_NONE)
+
 
 function build_special_ability:OnSpellStart()
     if PlayerResource:GetGold(self:GetCaster():GetPlayerOwnerID()) >= self:GetManaCost(self:GetLevel()) then
@@ -14,11 +16,13 @@ function build_special_ability:OnSpellStart()
 
         self.caster:SetForwardVector(dir)
 
-        if not placement_check:IsPlacementBlocked(self.player, self.mouse_pos, self.caster, 500) then
+        if not placement_check:IsPlacementBlocked(self.player, self.mouse_pos, self.caster, 1000) then
             local building = CreateUnitByName("npc_dota_special_ability_building", self.mouse_pos, false, self.player, self.player, self.player:GetTeamNumber())
 
             building:SetOwner(self.player)
             building:SetControllableByPlayer(self:GetCaster():GetPlayerOwnerID(), true)
+
+            building:AddNewModifier(self.player, self, "world_panel_holder_modifier", {duration = -1})
 
             PlayerResource:SpendGold(self:GetCaster():GetPlayerOwnerID(),self:GetManaCost(self:GetLevel()),DOTA_ModifyGold_AbilityCost)
         end

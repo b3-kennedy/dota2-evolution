@@ -561,6 +561,27 @@
 		"AbilityManaCost"				"150"		
 	}
 
+	"spawn_treant"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"spawn_treant"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"		"treant_leech_seed"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0 0.0 0.0 0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150"		
+	}
+
 	"lion_finger"
 	{
 		"BaseClass"						"ability_lua"

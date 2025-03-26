@@ -84,7 +84,7 @@
         // General
         //----------------------------------------------------------------
         "Model"						"models/props_structures/bad_ancient002.vmdl" // Model.
-        "BaseClass"					"npc_dota_tower"
+        "BaseClass"					"npc_dota_fort"
         "SoundSet"					"Creep_Good_Melee"
         "GameSoundsFile"			"soundevents/game_sounds_creeps.vsndevts"
         "Level"						"1"

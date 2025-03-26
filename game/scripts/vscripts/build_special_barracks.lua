@@ -3,6 +3,8 @@ build_special_barracks = class({})
 require('positions')
 require('placement_check')
 
+LinkLuaModifier("create_unit_modifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("world_panel_holder_modifier", LUA_MODIFIER_MOTION_NONE)
 
 function build_special_barracks:OnSpellStart()
     if PlayerResource:GetGold(self:GetCaster():GetPlayerOwnerID()) >= self:GetManaCost(self:GetLevel()) then
@@ -35,6 +37,7 @@ function build_special_barracks:OnSpellStart()
             building:SetOwner(self.player)
             building:SetControllableByPlayer(self:GetCaster():GetPlayerOwnerID(), true)
 
+            building:AddNewModifier(self.place,self,"world_panel_holder_modifier", kv)
             PlayerResource:SpendGold(self:GetCaster():GetPlayerOwnerID(),self:GetManaCost(self:GetLevel()),DOTA_ModifyGold_AbilityCost)
         end
     else
