@@ -75,7 +75,7 @@
       // General
         "BaseClass"                     "npc_dota_creature"
         "Model"                         "models/heroes/lion/lion.vmdl"
-        "SoundSet"                      "Hero_Grimstroke"
+        "SoundSet"                      "Hero_Lion"
         "Level"                         "1"
         "ModelScale"                    "1"
         // Abilities
@@ -113,6 +113,76 @@
 
         // Status
         "StatusHealth"                  "300"
+        "StatusHealthRegen"             "0.5"
+        "StatusMana"                    "500"
+        "StatusManaRegen"               "0.0"
+        
+        // Vision
+        "VisionDaytimeRange"            "700"
+        "VisionNighttimeRange"          "700"
+
+        // Team
+        "TeamName"                      "DOTA_TEAM_BADGUYS"
+        "CombatClassAttack"             "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend"             "DOTA_COMBAT_CLASS_DEFEND_WEAK"
+        "UnitRelationshipClass"         "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+        // Creature Data
+        "Creature"
+        {
+            "HPGain"                    "30"
+            "DamageGain"                "2"
+            "ArmorGain"                 "0.2"
+            "MagicResistGain"           "0.1"
+            "MoveSpeedGain"             "1"
+            "BountyGain"                "3"
+            "XPGain"                    "0"
+        }        
+    }
+
+    npc_dota_custom_ancient_apparition
+    {
+      // General
+        "BaseClass"                     "npc_dota_creature"
+        "Model"                         "models/heroes/ancient_apparition/ancient_apparition.vmdl"
+        "SoundSet"                      "Hero_AncientApparition"
+        "Level"                         "1"
+        "ModelScale"                    "1"
+        // Abilities
+        "Ability1"                      "ice_vortex"
+        "Ability2"                      ""
+        "Ability3"                      ""
+        "Ability4"                      ""
+
+        // Armor
+        "ArmorPhysical"                 "1"
+
+        // Attack
+        "AttackCapabilities"            "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageMin"               "20"
+        "AttackDamageMax"               "35"
+        "AttackRate"                    "1.5"
+        "AttackAnimationPoint"          "0.5"
+        "AttackAcquisitionRange"        "800"
+        "AttackRange"                   "500"
+        "ProjectileModel"               "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"
+        "ProjectileSpeed"               "900"
+
+        // Bounds
+        "RingRadius"                    "45"
+        "HealthBarOffset"               "140"
+
+        // Bounty
+        "BountyXP"                      "0"
+        "BountyGoldMin"                 "120"
+        "BountyGoldMax"                 "120"
+
+        // Movement
+        "MovementCapabilities"          "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"                 "325"
+
+        // Status
+        "StatusHealth"                  "800"
         "StatusHealthRegen"             "0.5"
         "StatusMana"                    "500"
         "StatusManaRegen"               "0.0"

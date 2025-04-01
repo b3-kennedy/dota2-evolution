@@ -603,6 +603,54 @@
 		"AbilityManaCost"				"150"		
 	}
 
+	"spawn_ancient_apparition"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"spawn_ancient_apparition"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"		"ancient_apparition_ice_vortex"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0 0.0 0.0 0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150"	
+	}
+
+	"ice_vortex"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"ice_vortex"
+		"AbilityTextureName"			"ancient_apparition_ice_vortex"
+		"FightRecapLevel"				"1"
+		"MaxLevel"						"3"
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.3"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15.0"
+		"AbilityManaCost"				"0"
+	}
+
 	"summon_ward"
 	{
 		"BaseClass"					"ability_lua"
@@ -936,5 +984,47 @@
 
 		"AbilityUnitTargetTeam"          "DOTA_UNIT_TARGET_TEAM_ENEMY"
     	"AbilityUnitTargetType"          "DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP"
+	}
+
+	"mortimer_kisses"
+	{
+		// Ability Technical Aspect
+		// base script folder	: scripts/vscripts
+		// base texture folder	: resource/flash3/images/spellicons
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"mortimer_kisses"
+		"AbilityTextureName"			"snapfire_mortimer_kisses"
+		"FightRecapLevel"				"2"
+		"MaxLevel"						"3"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_snapfire.vsndevts"
+			"particle"	"particles/status_fx/status_effect_snapfire_magma.vpcf"
+			"particle"	"particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_impact.vpcf"
+			"particle"	"particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_linger.vpcf"
+			"particle"	"particles/units/heroes/hero_snapfire/snapfire_lizard_blobs_arced.vpcf"
+			"particle"	"particles/units/heroes/hero_snapfire/hero_snapfire_burn_debuff.vpcf"
+			"particle"	"particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_calldown.vpcf"
+		}
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"3000"
+		"AbilityCastPoint"				"0.5"
+		"AbilityDuration"				"6.0"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"90"
+		"AbilityManaCost"				"0"
 	}
 }

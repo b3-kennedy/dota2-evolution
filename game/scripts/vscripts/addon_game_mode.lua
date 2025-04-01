@@ -75,7 +75,8 @@ function Precache(context)
 	PrecacheUnitByNameSync("npc_dota_hero_lion", context)
 	PrecacheUnitByNameSync("npc_dota_hero_treant", context)
 	PrecacheUnitByNameSync("npc_dota_hero_venomancer", context)
-	PrecacheUnitByNameSync("npc_dota_hero_axe", context)
+	PrecacheUnitByNameSync("npc_dota_hero_snapfire", context)
+	PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
 
 	-- Models can also be precached by folder or individually
 	-- PrecacheModel should generally used over PrecacheResource for individual models

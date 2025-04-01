@@ -41,6 +41,7 @@ function level_up:OnSpellStart()
             self:GetCaster():AddAbility("spawn_veno")
 
             self:GetCaster():RemoveAbility("spawn_lion")
+            self:GetCaster():AddAbility("spawn_ancient_apparition")
         end
     elseif self:GetCaster():GetUnitName() == "npc_dota_special_ability_building" then
     end

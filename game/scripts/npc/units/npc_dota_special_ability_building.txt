@@ -11,11 +11,17 @@
         "Level"						"1"
         "ModelScale" 				"1.0"
 
+        // Movement
+        //----------------------------------------------------------------
+        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"				"0"		// Speed.
+        "MovementTurnRate"          "0.0"
+
         // Abilities
         //----------------------------------------------------------------
-        "Ability1"					"spawn_tank"			// Ability 1
-        "Ability2"					"spawn_scout_hawk"			// Ability 2
-        "Ability3"					"spawn_heal"			// Ability 3
+        "Ability1"					"mortimer_kisses"			// Ability 1
+        "Ability2"					"generic_hidden"			// Ability 2
+        "Ability3"					"generic_hidden"			// Ability 3
         "Ability4"					"generic_hidden"
         "Ability5"                  "level_up"
         // Armor
