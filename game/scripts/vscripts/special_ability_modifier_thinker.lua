@@ -15,12 +15,12 @@ function special_ability_modifier_thinker:OnIntervalThink()
     local team_number = self:GetCaster():GetTeamNumber()  -- The team of the caster
 
     if team_number == DOTA_TEAM_GOODGUYS then
-        self.new_pos = self.start_pos.y + 300
+        self.new_pos = self.start_pos.x - 300
     else
-        self.new_pos = self.start_pos.y - 300
+        self.new_pos = self.start_pos.x + 300
     end
 
-    local vec = Vector(self.start_pos.x, self.new_pos, self.start_pos.z)
+    local vec = Vector(self.new_pos, self.start_pos.y, self.start_pos.z)
     self:GetParent():SetAbsOrigin(vec)
     self.start_pos = vec
     print(self:GetParent():GetAbsOrigin())

@@ -44,6 +44,16 @@ function level_up:OnSpellStart()
             self:GetCaster():AddAbility("spawn_ancient_apparition")
         end
     elseif self:GetCaster():GetUnitName() == "npc_dota_special_ability_building" then
+        if self:GetLevel()+1 == 2 then
+            self:GetCaster():RemoveAbility("mortimer_kisses")
+            --self:GetCaster():AddAbility("invis_units")
+            
+        elseif self:GetLevel()+1 == 3 then
+    
+        elseif self:GetLevel()+1 == 4 then
+            self:GetCaster():AddAbility("special_ability")
+
+        end
     end
 
     for i=0, self:GetCaster():GetAbilityCount()-1 do
