@@ -13,10 +13,30 @@ function plague_ward_modifier:OnCreated(kv)
     self.team_number = self.parent:GetTeamNumber()
     self.attack_moved = false
 
+    self.summoned_wards = {}
+
     if self.team_number == DOTA_TEAM_GOODGUYS then
         self.enemy_spawn = PLAYER_SPAWN_DIRE
     else
         self.enemy_spawn = PLAYER_SPAWN_RADIANT
+    end
+end
+
+function plague_ward_modifier:DeclareFunctions()
+    return {MODIFIER_EVENT_ON_DEATH}
+end
+
+function plague_ward_modifier:OnDeath(params)
+    if params.unit == self:GetParent() then  -- Check if the dying unit is the one with this modifier
+        local killer = params.attacker  -- The unit that killed the target
+        if killer then
+            for _, ward in pairs(self.summoned_wards) do
+                if ward then
+                    print(ward:GetUnitName())
+                    ward:Kill(nil, killer)
+                end
+            end
+        end
     end
 end
 

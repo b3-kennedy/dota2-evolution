@@ -110,8 +110,8 @@
 
         // Bounty
         "BountyXP"                      "88"
-        "BountyGoldMin"                 "30"
-        "BountyGoldMax"                 "30"
+        "BountyGoldMin"                 "10"
+        "BountyGoldMax"                 "10"
 
         // Movement
         "MovementCapabilities"          "DOTA_UNIT_CAP_NO_MOVE"

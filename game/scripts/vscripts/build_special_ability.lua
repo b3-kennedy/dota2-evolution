@@ -16,7 +16,7 @@ function build_special_ability:OnSpellStart()
 
         self.caster:SetForwardVector(dir)
 
-        if not placement_check:IsPlacementBlocked(self.player, self.mouse_pos, self.caster, 1000) then
+        if not placement_check:IsPlacementBlocked(self.player, self.mouse_pos, self.caster, 750) then
             local building = CreateUnitByName("npc_dota_special_ability_building", self.mouse_pos, false, self.player, self.player, self.player:GetTeamNumber())
 
             building:SetOwner(self.player)

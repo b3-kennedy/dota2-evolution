@@ -1,6 +1,7 @@
 summon_ward = class({})
 
 LinkLuaModifier("plague_ward_modifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("summon_ward_modifier", LUA_MODIFIER_MOTION_NONE)
 
 function summon_ward:GetIntrinsicModifierName()
     return "plague_ward_modifier"
@@ -19,5 +20,9 @@ function summon_ward:OnSpellStart()
         player,
         self:GetCaster():GetTeamNumber()
     )
+
+    local kv = {duration = -1, entindex = self:GetCaster():entindex()}
+
+    ward:AddNewModifier(self, self:GetCaster(), "summon_ward_modifier", kv)
 
 end
