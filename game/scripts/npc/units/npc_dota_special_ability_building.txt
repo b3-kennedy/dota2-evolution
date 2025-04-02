@@ -15,11 +15,11 @@
         //----------------------------------------------------------------
         "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed"				"0"		// Speed.
-        "MovementTurnRate"          "0.0"
+        "MovementTurnRate"          "9999"
 
         // Abilities
         //----------------------------------------------------------------
-        "Ability1"					"mortimer_kisses"			// Ability 1
+        "Ability1"					"sunstrike"			// Ability 1
         "Ability2"					"generic_hidden"			// Ability 2
         "Ability3"					"generic_hidden"			// Ability 3
         "Ability4"					"generic_hidden"

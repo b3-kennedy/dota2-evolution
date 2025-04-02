@@ -42,7 +42,7 @@
         //----------------------------------------------------------------
         "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
         "MovementSpeed"				"0"		// Speed.
-        "MovementTurnRate"          "0.0"			
+        "MovementTurnRate"          "9999"			
 
         // Status
         //----------------------------------------------------------------

@@ -4,6 +4,7 @@ require('positions')
 require('placement_check')
 
 LinkLuaModifier("world_panel_holder_modifier", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("basic_root_modifier", LUA_MODIFIER_MOTION_NONE)
 
 
 function build_special_ability:OnSpellStart()
@@ -21,7 +22,7 @@ function build_special_ability:OnSpellStart()
 
             building:SetOwner(self.player)
             building:SetControllableByPlayer(self:GetCaster():GetPlayerOwnerID(), true)
-
+            building:AddNewModifier(self.player, self, "basic_root_modifier", {duration = -1})
             building:AddNewModifier(self.player, self, "world_panel_holder_modifier", {duration = -1})
 
             PlayerResource:SpendGold(self:GetCaster():GetPlayerOwnerID(),self:GetManaCost(self:GetLevel()),DOTA_ModifyGold_AbilityCost)

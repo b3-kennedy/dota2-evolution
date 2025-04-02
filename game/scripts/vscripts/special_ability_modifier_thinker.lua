@@ -31,6 +31,8 @@ function special_ability_modifier_thinker:OnIntervalThink()
         nil
     )
 
+    AddFOWViewer( team_number, self:GetParent():GetAbsOrigin(), 500, 3, false )
+
     local radius = 500  -- AoE radius
     local damage = 1000  -- Amount of damage to deal
     local damage_type = DAMAGE_TYPE_MAGICAL  -- Damage type (MAGICAL, PHYSICAL, etc.)
@@ -51,7 +53,7 @@ function special_ability_modifier_thinker:OnIntervalThink()
     for _, enemy in pairs(enemies) do
         local damage_table = {
             victim = enemy,
-            attacker = self:GetParent(),  -- The caster
+            attacker = self:GetCaster(),  -- The caster
             damage = damage,  -- The damage to deal
             damage_type = damage_type,  -- The type of damage
             ability = self:GetAbility(),  -- The ability causing the damage (optional)
